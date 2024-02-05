@@ -3,9 +3,9 @@ package t04;
 public class Ejercicio5App {
 
 	public static void main(String[] args) {
-		int a = 1, b = 2, c = 3, d = 4, e = 5;
+		int a = 1, b = 2, c = 3, d = 4;
 		
-		System.out.println("a = " + a + " b = " + b + " c = " + c + " d = " + d + " e = " + e + "\n");
+		System.out.println("a = " + a + " b = " + b + " c = " + c + " d = " + d + "\n");
 
 		int aux = b;
 		b = c;
@@ -13,7 +13,7 @@ public class Ejercicio5App {
 		a = d;
 		d = aux;
 
-		System.out.println("a = " + a + " b = " + b + " c = " + c + " d = " + d + " e = " + e);
+		System.out.println("a = " + a + " b = " + b + " c = " + c + " d = " + d);
 
 	}
 
