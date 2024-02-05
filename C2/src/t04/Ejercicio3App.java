@@ -1,6 +1,6 @@
 package t04;
 
-public class Ejercicio3 {
+public class Ejercicio3App {
 
 	public static void main(String[] args) {
 
