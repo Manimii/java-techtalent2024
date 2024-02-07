@@ -27,7 +27,7 @@ public class Ejercicio13App {
 			JOptionPane.showMessageDialog(null, a + " * " + b + " = " + (a * b));
 			break;
 		case "/":
-			JOptionPane.showMessageDialog(null, a + " / " + b + " = " + (a / b));
+			JOptionPane.showMessageDialog(null, a + " / " + b + " = " + ((double)a / (double)b));
 			break;
 		case "^":
 			JOptionPane.showMessageDialog(null, a + " ^ " + b + " = " + (Math.pow(a, b)));
@@ -36,7 +36,7 @@ public class Ejercicio13App {
 			JOptionPane.showMessageDialog(null, a + " % " + b + " = " + (a % b));
 			break;
 		default:
-			System.out.println("Error");
+			JOptionPane.showMessageDialog(null,"Error");
 			break;
 		}
 		
