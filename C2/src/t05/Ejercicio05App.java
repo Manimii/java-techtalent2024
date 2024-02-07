@@ -2,7 +2,7 @@ package t05;
 
 import java.util.Scanner;
 
-public class Ejercicio5App {
+public class Ejercicio05App {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

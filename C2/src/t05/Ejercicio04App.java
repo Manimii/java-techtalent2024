@@ -2,7 +2,7 @@ package t05;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio4App {
+public class Ejercicio04App {
 
 	public static void main(String[] args) {
 		String input = JOptionPane.showInputDialog("Introduce el radio de la circumferencia");

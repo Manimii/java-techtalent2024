@@ -1,10 +1,12 @@
 package t05;
 
-public class Ejercicio8App {
+public class Ejercicio07App {
 
 	public static void main(String[] args) {
-		for (int i = 1; i <= 100; i++) {
+		int i = 1;
+		while (i <= 100) {
 			System.out.println(i);
+			i++;
 		}
 	}
 
