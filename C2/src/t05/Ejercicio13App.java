@@ -16,35 +16,38 @@ public class Ejercicio13App {
 		int a = Integer.parseInt(n1);
 		int b = Integer.parseInt(n2);
 		
+		String resultado = "";
+		
 		switch (signo) {
 		case "+":
-			JOptionPane.showMessageDialog(null, a + " + " + b + " = " + (a + b));
+			resultado =  a + " + " + b + " = " + (a + b);
 			break;
 		case "-":
-			JOptionPane.showMessageDialog(null, a + " - " + b + " = " + (a - b));
+			resultado = a + " - " + b + " = " + (a - b);
 			break;
 		case "*":
-			JOptionPane.showMessageDialog(null, a + " * " + b + " = " + (a * b));
+			resultado = a + " * " + b + " = " + (a * b);
 			break;
 		case "/":
 			while (b == 0) {
 				b = Integer.parseInt(JOptionPane.showInputDialog("No se puede dividir por 0, introduce un otro número entero"));
 			}
-			JOptionPane.showMessageDialog(null, a + " / " + b + " = " + ((double)a / (double)b));
+			resultado = a + " / " + b + " = " + ((double)a / (double)b);
 			break;
 		case "^":
-			JOptionPane.showMessageDialog(null, a + " ^ " + b + " = " + (Math.pow(a, b)));
+			resultado = a + " ^ " + b + " = " + (Math.pow(a, b));
 			break;
 		case "%":
 			while (b == 0) {
 				b = Integer.parseInt(JOptionPane.showInputDialog("No se puede dividir por 0, introduce un otro número entero"));
 			}
-			JOptionPane.showMessageDialog(null, a + " % " + b + " = " + (a % b));
+			resultado = a + " % " + b + " = " + (a % b);
 			break;
 		default:
-			JOptionPane.showMessageDialog(null,"Error");
+			resultado = "Error";
 			break;
 		}
+		JOptionPane.showMessageDialog(null,resultado);
 		
 	}
 
