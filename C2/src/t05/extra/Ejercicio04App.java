@@ -2,7 +2,7 @@ package t05.extra;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio04 {
+public class Ejercicio04App {
 
 	public static void main(String[] args) {
 		int num = Integer.parseInt(JOptionPane.showInputDialog("Introduce un número"));

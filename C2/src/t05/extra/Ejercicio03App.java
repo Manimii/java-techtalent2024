@@ -2,7 +2,7 @@ package t05.extra;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio03 {
+public class Ejercicio03App {
 
 	public static void main(String[] args) {
 		int suma = 0;

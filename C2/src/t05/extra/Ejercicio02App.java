@@ -1,6 +1,6 @@
 package t05.extra;
 
-public class Ejercicio02 {
+public class Ejercicio02App {
 
 	public static void main(String[] args) {
 		for (int i = 1; i < 10; i++) {
