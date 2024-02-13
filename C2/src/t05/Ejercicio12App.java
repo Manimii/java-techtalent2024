@@ -7,11 +7,11 @@ public class Ejercicio12App {
 	public static void main(String[] args) {
 		String password = "abc123";
 		String intento = "";
-		int nintentos = 3;
+		int nIntentos = 3;
 
-		while (!intento.equals(password) && nintentos > 0) {
-			intento = JOptionPane.showInputDialog("Introduce la contraseña (" + nintentos + " intentos)");
-			nintentos--;
+		while (!intento.equals(password) && nIntentos > 0) {
+			intento = JOptionPane.showInputDialog("Introduce la contraseña (" + nIntentos + " intentos)");
+			nIntentos--;
 		}
 
 		if (intento.equals(password)) {
