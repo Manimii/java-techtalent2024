@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Ejercicio11App {
 
 	public static void main(String[] args) {
-		String dia = JOptionPane.showInputDialog("Introduce un día de la semana");
+		String dia = JOptionPane.showInputDialog("Introduce un día de la semana").toLowerCase();
 
 		switch (dia) {
 		case "lunes", "martes", "miércoles", "jueves", "viernes":
