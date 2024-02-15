@@ -1,10 +1,12 @@
 package t06;
 
+import javax.swing.JOptionPane;
+
 public class Ejercicio05App {
 
 	public static void main(String[] args) {
-
-		System.out.println(toBinary(4));
+		int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduce un número entero decimal"));
+		JOptionPane.showMessageDialog(null, numero + " en binario es " + toBinary(numero));
 	}
 
 	public static String toBinary(int n) {
