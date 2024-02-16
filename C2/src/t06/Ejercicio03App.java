@@ -15,15 +15,15 @@ public class Ejercicio03App {
 	}
 
 	public static boolean esPrimo(int num) {
-		boolean endLoop = false;
+		boolean primo = true;
 
-		for (int i = 2; i <= (num/2) && !endLoop; i++) {
+		for (int i = 2; i <= (num/2) && primo; i++) {
 			if (num % i == 0) {
-				endLoop = true;
+				primo = false;
 			}
 		}
 		
-		return !endLoop;
+		return primo;
 		
 	}
 }
