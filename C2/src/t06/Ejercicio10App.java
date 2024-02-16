@@ -27,7 +27,7 @@ public class Ejercicio10App {
 		return primo;
 
 	}
-	
+
 	public static int nrandom(int start, int end) {
 		Random r = new Random();
 		int num = r.nextInt(end - start + 1) + start;
@@ -35,6 +35,12 @@ public class Ejercicio10App {
 			num = r.nextInt(end - start + 1) + start;
 		}
 		return num;
-		
+
+	}
+	
+	public static void rellenarArray(int[] a, int min, int max) {
+		for (int i = 0; i < a.length; i++) {
+			a[i] = nrandom(min, max);
+		}
 	}
 }
