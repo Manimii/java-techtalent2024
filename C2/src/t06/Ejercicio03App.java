@@ -6,7 +6,7 @@ public class Ejercicio03App {
 
 	public static void main(String[] args) {
 		int n = Integer.parseInt(JOptionPane.showInputDialog("Introduce un número"));
-		
+
 		if (esPrimo(n)) {
 			System.out.println(n + " es primo");
 		} else {
@@ -15,15 +15,19 @@ public class Ejercicio03App {
 	}
 
 	public static boolean esPrimo(int num) {
+		if (num <= 1) {
+			return false;
+		}
+
 		boolean primo = true;
 
-		for (int i = 2; i <= (num/2) && primo; i++) {
+		for (int i = 2; i <= (num / 2) && primo; i++) {
 			if (num % i == 0) {
 				primo = false;
 			}
 		}
-		
+
 		return primo;
-		
+
 	}
 }
