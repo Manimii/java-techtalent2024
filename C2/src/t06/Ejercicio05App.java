@@ -18,7 +18,7 @@ public class Ejercicio05App {
 
 		while (n > 0) {
 			binario += n % 2;
-			n = n / 2;
+			n /= 2;
 
 		}
 

@@ -12,10 +12,11 @@ public class Ejercicio04App {
 
 	public static int factorial(int n) {
 		n = Math.abs(n);
+
 		if (n <= 1) {
 			return 1;
 		} else {
-			return n * factorial(n-1);
+			return n * factorial(n - 1);
 		}
 	}
 }
