@@ -17,22 +17,22 @@ public class Ejercicio05App {
 		String binario = "";
 
 		while (n > 0) {
-			binario += n % 2;
+			binario = (n % 2) + binario;
 			n /= 2;
 
 		}
 
-		binario = reverseString(binario);
+//		binario = reverseString(binario);
 
 		return binario;
 	}
 
-	public static String reverseString(String s) {
-		String aux = "";
-		for (int i = s.length() - 1; i >= 0; i--) {
-			aux += s.charAt(i);
-		}
-
-		return aux;
-	}
+//	public static String reverseString(String s) {
+//		String aux = "";
+//		for (int i = s.length() - 1; i >= 0; i--) {
+//			aux += s.charAt(i);
+//		}
+//
+//		return aux;
+//	}
 }
