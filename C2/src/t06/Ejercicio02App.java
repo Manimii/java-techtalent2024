@@ -7,6 +7,15 @@ import javax.swing.JOptionPane;
 public class Ejercicio02App {
 
 	public static void main(String[] args) {
+		mostrarNumeros();
+	}
+
+	public static int nrandom(int min, int max) {
+		return (int) (min + (Math.random() * (max + 1 - min)));
+
+	}
+	
+	public static void mostrarNumeros() {
 		int n = Integer.parseInt(
 				JOptionPane.showInputDialog("Introduce la cantidad de números aleatorios que quieres generar"));
 
@@ -16,10 +25,5 @@ public class Ejercicio02App {
 		for (int i = 0; i < n; i++) {
 			System.out.println((i + 1) + ": " + nrandom(Math.min(n1, n2), Math.max(n1, n2)));
 		}
-	}
-
-	public static int nrandom(int min, int max) {
-		return (int) (min + (Math.random() * (max + 1 - min)));
-
 	}
 }
