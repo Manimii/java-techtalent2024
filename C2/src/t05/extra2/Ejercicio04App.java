@@ -8,11 +8,9 @@ public class Ejercicio04App {
 		String texto = JOptionPane.showInputDialog("Introduce un texto de tres o más caracteres");
 		int index = Integer.parseInt(JOptionPane.showInputDialog("Introduce un índice"));
 		String resultado = "Los caracteres anterior y posterior al índice son distintos";
-
-		if (index < texto.length() - 1) {
-			if (texto.charAt(index - 1) == texto.charAt(index + 1)) {
-				resultado = "Los caracteres anterior y posterior al índice son iguales";
-			}
+		
+		if (index < texto.length() - 1 && index > 0 && (texto.charAt(index - 1) == texto.charAt(index + 1))) {
+			resultado = "Los caracteres anterior y posterior al índice son iguales";
 		}
 
 		System.out.println(resultado);
