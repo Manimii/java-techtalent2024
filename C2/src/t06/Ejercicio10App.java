@@ -28,7 +28,7 @@ public class Ejercicio10App {
 
 		boolean primo = true;
 
-		for (int i = 2; i <= (num / 2) && primo; i++) {
+		for (int i = 2; i <= Math.sqrt(num) && primo; i++) {
 			if (num % i == 0) {
 				primo = false;
 			}
