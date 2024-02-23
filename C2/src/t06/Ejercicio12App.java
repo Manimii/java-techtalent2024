@@ -40,7 +40,7 @@ public class Ejercicio12App {
 		}
 	}
 
-	// Imprime por consola el contenido de una array
+	// Imprime por consola los valores del array que teminan en n
 	public static void mostrarArrayDigito(int[] a, int n) {
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] % 10 == n) {
