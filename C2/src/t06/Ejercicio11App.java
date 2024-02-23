@@ -12,13 +12,13 @@ public class Ejercicio11App {
 
 		rellenarArray(array1);
 		rellenarArray(array2);
-		
+
 		System.out.println("----ARRAY 1----");
 		mostrarArray(array1);
 		System.out.println("\n----ARRAY 2----");
 		mostrarArray(array2);
 		System.out.println("\n----ARRAY MULTIPLICACIÓN----");
-		mostrarArray(multiplicarArrays(array1,array2));
+		mostrarArray(multiplicarArrays(array1, array2));
 	}
 
 	// Rellena una array con enteros aleatorios entre 0 y 9
