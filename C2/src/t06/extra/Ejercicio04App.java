@@ -17,6 +17,8 @@ public class Ejercicio04App {
 
 	}
 
+	
+	//SIN ACABAR
 	public static void eliminaDuplicados(int[] a) {
 		Arrays.sort(a);
 		muestraArray(a);
@@ -32,7 +34,7 @@ public class Ejercicio04App {
 		}
 		actual = -1;
 
-		int[] b = new int[a.length - count];
+		int[] b = new int[a.length - 1 - count];
 
 		int i = 0;
 		while (i < b.length) {
@@ -41,12 +43,10 @@ public class Ejercicio04App {
 					j++;
 				} else {
 					b[i] = a[j];
-					muestraArray(b);
 					i++;
 				}
 				actual = a[j];
 				
-				System.out.println(j);
 			}
 		}
 		
