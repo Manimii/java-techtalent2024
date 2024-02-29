@@ -8,7 +8,7 @@ public class Ejercicio02App {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		ArrayList<HashMap> carritos = new ArrayList<HashMap>();
+		ArrayList<Object> carritos = new ArrayList<Object>();
 		HashMap<String, Double> carrito = new HashMap<String, Double>();
 		System.out.println("Introduce el número de carritos");
 		int n = sc.nextInt();
