@@ -18,7 +18,7 @@ public class Ejercicio02App {
 			double iva = sc.nextDouble();
 			carrito.put("IVA", iva);
 
-			System.out.println("Precio total:");
+			System.out.println("Precio total bruto:");
 			double precio = sc.nextDouble();
 			double precioIva = precio + (precio * iva / 100);
 			carrito.put("precio", precio);
