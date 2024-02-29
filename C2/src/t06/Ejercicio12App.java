@@ -42,9 +42,20 @@ public class Ejercicio12App {
 
 	// Imprime por consola los valores del array que teminan en n
 	public static void mostrarArrayDigito(int[] a, int n) {
+		int count = 0;
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] % 10 == n) {
-				System.out.println("a[" + i + "] : " + a[i]);
+				count++;
+			}
+		}
+		int[] b = new int[count];
+		count = 0;
+
+		for (int i = 0; i < a.length || count < b.length; i++) {
+			if (a[i] % 10 == n) {
+				b[count] = a[i];
+				System.out.println("a[" + i + "] : " + b[count]);
+				count++;
 			}
 		}
 	}
