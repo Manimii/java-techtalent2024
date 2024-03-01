@@ -12,7 +12,7 @@ public class Ejercicio03App {
 		ArrayList<HashMap> articulos = new ArrayList<HashMap>();
 		String nombre = "";
 		int cantidad = 0;
-		double precio = 0;
+		double precio = 0, iva = 0.21;
 
 		int choose = 0;
 		do {
@@ -29,8 +29,14 @@ public class Ejercicio03App {
 
 				System.out.println("precio del artículo:");
 				precio = sc.nextDouble();
-
-				addArticle(articulos, nombre, cantidad, precio);
+				
+				System.out.println("IVA del producto (0.04 o 0.21):");
+				iva = sc.nextDouble();
+				while (iva != 0.04 || iva != 0.21) {
+					iva = sc.nextDouble();
+				}
+				
+				addArticle(articulos, nombre, cantidad, precio, iva);
 				break;
 			case 2:
 				// Consultar artículo
@@ -50,11 +56,12 @@ public class Ejercicio03App {
 		} while (choose != 4);
 	}
 
-	public static void addArticle(ArrayList<HashMap> articulos, String nombre, int cantidad, double precio) {
+	public static void addArticle(ArrayList<HashMap> articulos, String nombre, int cantidad, double precio, double iva) {
 		HashMap<String, Object> articulo = new HashMap<String, Object>();
 		articulo.put("nombre", nombre);
 		articulo.put("cantidad", cantidad);
 		articulo.put("precio", precio);
+		articulo.put("IVA", iva);
 
 		articulos.add(articulo);
 	}
