@@ -16,13 +16,7 @@ public class Ejercicio03App {
 
 		int choose = 0;
 		do {
-			System.out.println("----------------------");
-			System.out.println("SELECCIONA UNA OPCIÓN");
-			System.out.println("1. Añadir un nuevo artículo");
-			System.out.println("2. Consultar información de un artículo");
-			System.out.println("3. Listar todos los artículos");
-			System.out.println("4. Salir del programa");
-			System.out.println("----------------------\n");
+			listaMenu();
 			choose = sc.nextInt();
 			switch (choose) {
 			case 1:
@@ -78,6 +72,16 @@ public class Ejercicio03App {
 		for (int i = 0; i < articulos.size(); i++) {
 			System.out.println(articulos.get(i).toString());
 		}
+	}
+	
+	public static void listaMenu() {
+		System.out.println("	----------------------");
+		System.out.println("	SELECCIONA UNA OPCIÓN");
+		System.out.println("1. Añadir un nuevo artículo");
+		System.out.println("2. Consultar información de un artículo");
+		System.out.println("3. Listar todos los artículos");
+		System.out.println("4. Salir del programa");
+		System.out.println("	----------------------\n");
 	}
 
 }
