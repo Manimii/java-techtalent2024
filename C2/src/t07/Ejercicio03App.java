@@ -60,20 +60,26 @@ public class Ejercicio03App {
 	}
 
 	public static void getArticle(ArrayList<HashMap> articulos, String nombre) {
-		for (int i = 0; i < articulos.size(); i++) {
+		boolean found = false;
+		for (int i = 0; i < articulos.size() && !found; i++) {
 			if (articulos.get(i).get("nombre").equals(nombre)) {
 				System.out.println(articulos.get(i).toString());
+				found = true;
 			}
 		}
+		
+		if (!found) {
+			System.out.println("No se ha encontrado el artículo " + nombre);
+		}
 	}
-	
+
 	public static void listArticles(ArrayList<HashMap> articulos) {
 		System.out.println("ARTICULOS DISPONIBLES: ");
 		for (int i = 0; i < articulos.size(); i++) {
 			System.out.println(articulos.get(i).toString());
 		}
 	}
-	
+
 	public static void listaMenu() {
 		System.out.println("	----------------------");
 		System.out.println("	SELECCIONA UNA OPCIÓN");
