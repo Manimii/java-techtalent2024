@@ -51,7 +51,7 @@ public class Ejercicio04App {
 				listArticles(articulos);
 				break;
 			case 4:
-				HashMap<String, Object> articulo = new HashMap<String, Object>();
+				ArrayList<HashMap> carrito = new ArrayList<HashMap>();
 
 				listArticles(articulos);
 				do {
@@ -65,6 +65,7 @@ public class Ejercicio04App {
 						cantidad = sc.nextInt();
 
 						retirarCantidadArticulo(articulos, nombre, cantidad);
+						addToCarrito(carrito, nombre, cantidad);
 
 					}
 				} while (!nombre.equals("0"));
@@ -120,6 +121,7 @@ public class Ejercicio04App {
 		return false;
 	}
 
+	//Retirar del stock un número determniado de un producto.
 	public static void retirarCantidadArticulo(ArrayList<HashMap> articulos, String nombre, int cantidad) {
 		int cantidadActual = 0, cantidadNueva = 0, cantidadSobrante = 0;
 		boolean found = false;
@@ -146,8 +148,10 @@ public class Ejercicio04App {
 
 			}
 		}
-
-		listArticles(articulos);
+	}
+	
+	public static void addToCarrito(ArrayList<HashMap> carrito, String nombre, int cantidad) {
+		
 	}
 
 	public static void listaMenu() {
