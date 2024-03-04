@@ -58,13 +58,16 @@ public class Ejercicio04App {
 					System.out.println(
 							"Elige que producto quires añadir al carrito. Escribe '0' para terminar la compra");
 					nombre = sc.next();
-					if (!existsArticle(articulos, nombre)) {
+					if (!existsArticle(articulos, nombre) && !nombre.equals("0")) {
 						System.out.println("No disponemos de este producto.");
 					} else if (!nombre.equals("0")) {
 						System.out.println("¿Cuanta cantidad quieres añadir al carrito?");
 						cantidad = sc.nextInt();
+
+						retirarCantidadArticulo(articulos, nombre, cantidad);
+
 					}
-				} while (nombre != "0");
+				} while (!nombre.equals("0"));
 				break;
 			case 5:
 				break;
@@ -104,6 +107,7 @@ public class Ejercicio04App {
 		for (int i = 0; i < articulos.size(); i++) {
 			System.out.println(articulos.get(i).toString());
 		}
+		System.out.println();
 	}
 
 	public static boolean existsArticle(ArrayList<HashMap> articulos, String nombre) {
@@ -122,19 +126,28 @@ public class Ejercicio04App {
 		for (int i = 0; i < articulos.size() && !found; i++) {
 			if (articulos.get(i).get("nombre").equals(nombre)) {
 				cantidadActual = (int) articulos.get(i).get("cantidad");
-				cantidadNueva = cantidadActual - cantidad;
 
-				if (cantidadNueva < 0) {
-					cantidadSobrante = Math.abs(cantidadNueva);
-					cantidadNueva = 0;
+				if (cantidadActual == 0) {
+					System.out.println("Ya no queda " + nombre);
+				} else {
+					cantidadNueva = cantidadActual - cantidad;
+
+					if (cantidadNueva < 0) {
+						cantidadSobrante = Math.abs(cantidadNueva);
+						cantidadNueva = 0;
+						System.out.println("Ya no queda más " + nombre + " y solo puedes llevarte "
+								+ (cantidad - cantidadSobrante));
+
+					}
+
+					articulos.get(i).put("cantidad", cantidadNueva);
+					found = true;
 				}
-				
-				articulos.get(i).put("cantidad", cantidadNueva);
-				found = true;
 
 			}
 		}
 
+		listArticles(articulos);
 	}
 
 	public static void listaMenu() {
