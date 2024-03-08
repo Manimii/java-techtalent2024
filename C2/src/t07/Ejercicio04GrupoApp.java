@@ -180,8 +180,14 @@ public class Ejercicio04GrupoApp {
 		// Pagar y mostrar cambio
 		System.out.println("Paga");
 		efectivo = sc.nextDouble();
+		while (efectivo < precio) {
+			System.out.println("Cantidad insuficiente. Paga");
+			efectivo = sc.nextDouble();
+		}
 		cambio = pagar(precio, efectivo);
-		System.out.println("Recibes " + cambio + "€ de cambio");
+		if (cambio != 0) {
+			System.out.println("Recibes " + cambio + "€ de cambio");
+		}
 		// Actualizar Stock
 		actualizarStock(carrito, baseDeDatos);
 		carrito.clear();
