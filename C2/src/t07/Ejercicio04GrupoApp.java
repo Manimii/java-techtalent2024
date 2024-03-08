@@ -141,7 +141,12 @@ public class Ejercicio04GrupoApp {
 		String producto = sc.nextLine();
 		System.out.println("¿Cuántas unidades quieres añadir al carrito?");
 		int cantidad = sc.nextInt();
-
+		int cantidadMax = Integer.parseInt(baseDeDatos.get(producto).get("cantidad").toString());
+		if (cantidad > cantidadMax) {
+			cantidad = cantidadMax;
+			System.out.println("No tenemos stock suficiente, solo puedes llevarte " + cantidad);
+		}
+	
 		HashMap<String, Object> elemento = new HashMap<String, Object>();
 		elemento.put("cantidad", cantidad);
 		elemento.put("precio", baseDeDatos.get(producto).get("precio"));
@@ -185,10 +190,10 @@ public class Ejercicio04GrupoApp {
 			efectivo = sc.nextDouble();
 		}
 		cambio = pagar(precio, efectivo);
+		cambio = Math.round(cambio * 100.0) / 100.0;
 		if (cambio != 0) {
 			System.out.println("Recibes " + cambio + "€ de cambio");
 		}
-		// Actualizar Stock
 		actualizarStock(carrito, baseDeDatos);
 		carrito.clear();
 	}
