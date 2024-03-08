@@ -10,12 +10,14 @@ public class Ejercicio04GrupoApp {
 
 		HashMap<String, HashMap> baseDeDatos = new HashMap<String, HashMap>();
 		HashMap<String, HashMap> carrito = new HashMap<String, HashMap>();
-		rellenarbaseDeDatos(baseDeDatos);
 
+		rellenarbaseDeDatos(baseDeDatos);
 		mostrarMenu(baseDeDatos, carrito);
 
+		sc.close();
 	}
 
+	// Menús de Gestión
 	public static void mostrarMenu(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
 		Scanner sc = new Scanner(System.in);
 		int select = 0, choose = 0;
@@ -32,30 +34,6 @@ public class Ejercicio04GrupoApp {
 				break;
 			case 3:
 				// salir programa
-				break;
-			default:
-				System.out.println("Error, introduce una opción válida\n");
-				break;
-			}
-		}
-	}
-	
-	public static void gestionarCarrito(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
-		Scanner sc = new Scanner(System.in);
-		int choose = 0;
-		while (choose != 4) {
-			menuCarrito();
-			choose = sc.nextInt();
-			sc.nextLine();
-			switch (choose) {
-			case 1:
-				mostrarStock(baseDeDatos);
-				break;
-			case 2:
-				addProducto(baseDeDatos, carrito);
-				break;
-			case 3:
-				comprobarProducto(baseDeDatos);
 				break;
 			default:
 				System.out.println("Error, introduce una opción válida\n");
@@ -89,20 +67,33 @@ public class Ejercicio04GrupoApp {
 			}
 		}
 	}
-	
-	public static void addProducto(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> Carrito) {
-		System.out.println("Selecciona uno de los sigüientes productos:\n");
-		mostrarStock(baseDeDatos);
-	}
 
-	public static void comprobarProducto(HashMap<String, HashMap> baseDeDatos) {
+	public static void gestionarCarrito(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("¿Qué producto quieres comprobar?");
-		String producto = sc.nextLine();
-		System.out.println(baseDeDatos.get(producto) + "\n");
-
+		int choose = 0;
+		while (choose != 4) {
+			menuCarrito();
+			choose = sc.nextInt();
+			sc.nextLine();
+			switch (choose) {
+			case 1:
+				// Añadir producto
+				addProducto(baseDeDatos, carrito);
+				break;
+			case 2:
+				// Comprobar carrito
+				break;
+			case 3:
+				// Hacer compra
+				break;
+			default:
+				System.out.println("Error, introduce una opción válida\n");
+				break;
+			}
+		}
 	}
 
+	// Métodos de gestión de stock
 	public static void addStock(HashMap<String, HashMap> baseDeDatos) {
 		Scanner sc = new Scanner(System.in);
 
@@ -124,6 +115,48 @@ public class Ejercicio04GrupoApp {
 
 	}
 
+	public static void comprobarProducto(HashMap<String, HashMap> baseDeDatos) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("¿Qué producto quieres comprobar?");
+		String producto = sc.nextLine();
+		System.out.println(baseDeDatos.get(producto) + "\n");
+
+	}
+
+	public static void mostrarStock(HashMap<String, HashMap> baseDeDatos) {
+		for (String i : baseDeDatos.keySet()) {
+			System.out.println(i + ": " + baseDeDatos.get(i));
+		}
+		System.out.println();
+	}
+
+	// Métodos de gestión de Compra
+	public static void addProducto(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Selecciona uno de los sigüientes productos:\n");
+		mostrarStock(baseDeDatos);
+		String producto = sc.nextLine();
+		System.out.println("¿Cuántas unidades quieres añadir al carrito?");
+		int cantidad = sc.nextInt();
+
+		carrito.put(producto, baseDeDatos.get(producto));
+		carrito.get(producto).put("cantidad", cantidad);
+		carrito.put(producto, baseDeDatos.get(producto));
+
+		mostrarCarrito(carrito);
+		mostrarStock(baseDeDatos);
+
+	}
+
+	public static void mostrarCarrito(HashMap<String, HashMap> carrito) {
+		for (String i : carrito.keySet()) {
+			System.out.println(i + ": " + carrito.get(i));
+		}
+		System.out.println();
+	}
+
+	// Menús
 	public static void menu() {
 		System.out.println("---------SELECCIONA UNA OPCIÓN---------");
 		System.out.println("1. Gestionar Stock");
@@ -140,7 +173,7 @@ public class Ejercicio04GrupoApp {
 		System.out.println("	4. Salir");
 		System.out.println("---------------------------------------");
 	}
-	
+
 	public static void menuCarrito() {
 		System.out.println("---------SELECCIONA UNA OPCIÓN---------");
 		System.out.println("	1. Añadir producto");
@@ -149,13 +182,7 @@ public class Ejercicio04GrupoApp {
 		System.out.println("---------------------------------------");
 	}
 
-	public static void mostrarStock(HashMap<String, HashMap> baseDeDatos) {
-		for (String i : baseDeDatos.keySet()) {
-			System.out.println(i + ": " + baseDeDatos.get(i));
-		}
-		System.out.println();
-	}
-
+	// Base de datos inicial
 	public static void rellenarbaseDeDatos(HashMap<String, HashMap> baseDeDatos) {
 		HashMap<String, Object> elemento = new HashMap<String, Object>();
 		elemento.put("precio", "0.50");
