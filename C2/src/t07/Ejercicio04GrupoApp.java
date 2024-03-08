@@ -184,6 +184,7 @@ public class Ejercicio04GrupoApp {
 		System.out.println("Recibes " + cambio + "€ de cambio");
 		// Actualizar Stock
 		actualizarStock(carrito, baseDeDatos);
+		carrito.clear();
 	}
 
 	private static double totalConIVA(HashMap<String, HashMap> carrito) {
