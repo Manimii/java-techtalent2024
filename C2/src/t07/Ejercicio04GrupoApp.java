@@ -71,7 +71,7 @@ public class Ejercicio04GrupoApp {
 	public static void gestionarCarrito(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
 		Scanner sc = new Scanner(System.in);
 		int choose = 0;
-		while (choose != 4) {
+		while (choose != 3) {
 			menuCarrito();
 			choose = sc.nextInt();
 			sc.nextLine();
@@ -82,9 +82,11 @@ public class Ejercicio04GrupoApp {
 				break;
 			case 2:
 				// Comprobar carrito
+				mostrarCarrito(carrito);
 				break;
 			case 3:
 				// Hacer compra
+				confirmarCompra(carrito, baseDeDatos);
 				break;
 			default:
 				System.out.println("Error, introduce una opción válida\n");
@@ -140,12 +142,11 @@ public class Ejercicio04GrupoApp {
 		System.out.println("¿Cuántas unidades quieres añadir al carrito?");
 		int cantidad = sc.nextInt();
 
-		carrito.put(producto, baseDeDatos.get(producto));
-		carrito.get(producto).put("cantidad", cantidad);
-		carrito.put(producto, baseDeDatos.get(producto));
-
-		mostrarCarrito(carrito);
-		mostrarStock(baseDeDatos);
+		HashMap<String, Object> elemento = new HashMap<String, Object>();
+		elemento.put("cantidad", cantidad);
+		elemento.put("precio", baseDeDatos.get(producto).get("precio"));
+		elemento.put("IVA", baseDeDatos.get(producto).get("IVA"));
+		carrito.put(producto, elemento);
 
 	}
 
@@ -154,6 +155,66 @@ public class Ejercicio04GrupoApp {
 			System.out.println(i + ": " + carrito.get(i));
 		}
 		System.out.println();
+	}
+
+	public static void confirmarCompra(HashMap<String, HashMap> carrito, HashMap<String, HashMap> baseDeDatos) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("¿Confirmas esta compra? (S/N)");
+		mostrarCarrito(carrito);
+
+		String respuesta = "";
+		while (!respuesta.equalsIgnoreCase("S") && !respuesta.equalsIgnoreCase("N")) {
+			respuesta = sc.nextLine();
+			if (respuesta.equalsIgnoreCase("S")) {
+				hacerCompra(carrito, baseDeDatos);
+			}
+		}
+	}
+
+	// Métodos de calcular la compra
+	public static void hacerCompra(HashMap<String, HashMap> carrito, HashMap<String, HashMap> baseDeDatos) {
+		Scanner sc = new Scanner(System.in);
+		double precio = totalConIVA(carrito), efectivo = 0, cambio = 0;
+		// calcular precio con iva y mostrarlo
+		System.out.println("Precio total a pagar: " + precio);
+		// Pagar y mostrar cambio
+		System.out.println("Paga");
+		efectivo = sc.nextDouble();
+		cambio = pagar(precio, efectivo);
+		System.out.println("Recibes " + cambio + "€ de cambio");
+		// Actualizar Stock
+		actualizarStock(carrito, baseDeDatos);
+	}
+
+	private static double totalConIVA(HashMap<String, HashMap> carrito) {
+		double iva = 0.21;
+		double sumaTotalConIVA = 0, precio = 0;
+		int cantidad = 0;
+
+		// Print keys and values
+		for (String i : carrito.keySet()) {
+//          System.out.println("key: " + i + " value: " + carrito.get(i));
+			precio = Double.parseDouble((carrito.get(i).get("precio").toString()));
+			iva = Double.parseDouble(carrito.get(i).get("IVA").toString());
+			cantidad = Integer.parseInt(carrito.get(i).get("cantidad").toString());
+
+			sumaTotalConIVA += (precio + (precio * iva)) * cantidad;
+		}
+		return sumaTotalConIVA;
+	}
+
+	public static void actualizarStock(HashMap<String, HashMap> carrito, HashMap<String, HashMap> baseDeDatos) {
+		int cantidadCarrito = 0;
+		int cantidadStock = 0;
+		for (String i : carrito.keySet()) {
+			cantidadCarrito = Integer.parseInt(carrito.get(i).get("cantidad").toString());
+			cantidadStock = Integer.parseInt(baseDeDatos.get(i).get("cantidad").toString());
+			baseDeDatos.get(i).put("cantidad", cantidadStock - cantidadCarrito);
+		}
+	}
+
+	public static double pagar(double precio, double efectivo) {
+		return efectivo - precio;
 	}
 
 	// Menús
