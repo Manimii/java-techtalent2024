@@ -146,7 +146,7 @@ public class Ejercicio04GrupoApp {
 			cantidad = cantidadMax;
 			System.out.println("No tenemos stock suficiente, solo puedes llevarte " + cantidad);
 		}
-	
+
 		HashMap<String, Object> elemento = new HashMap<String, Object>();
 		elemento.put("cantidad", cantidad);
 		elemento.put("precio", baseDeDatos.get(producto).get("precio"));
