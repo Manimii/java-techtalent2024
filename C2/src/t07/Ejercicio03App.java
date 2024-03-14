@@ -10,9 +10,9 @@ public class Ejercicio03App {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		ArrayList<HashMap> articulos = new ArrayList<HashMap>();
-		
+
 		addStarterArticles(articulos);
-		
+
 		String nombre = "";
 		int cantidad = 0;
 		double precio = 0, iva = 0.21;
@@ -32,13 +32,13 @@ public class Ejercicio03App {
 
 				System.out.println("precio del artículo:");
 				precio = sc.nextDouble();
-				
+
 				System.out.println("IVA del producto (0.04 o 0.21):");
 				iva = sc.nextDouble();
 				while (iva != 0.04 && iva != 0.21) {
 					iva = sc.nextDouble();
 				}
-				
+
 				addArticle(articulos, nombre, cantidad, precio, iva);
 				break;
 			case 2:
@@ -59,7 +59,8 @@ public class Ejercicio03App {
 		}
 	}
 
-	public static void addArticle(ArrayList<HashMap> articulos, String nombre, int cantidad, double precio, double iva) {
+	public static void addArticle(ArrayList<HashMap> articulos, String nombre, int cantidad, double precio,
+			double iva) {
 		HashMap<String, Object> articulo = new HashMap<String, Object>();
 		articulo.put("nombre", nombre);
 		articulo.put("cantidad", cantidad);
@@ -77,7 +78,7 @@ public class Ejercicio03App {
 				found = true;
 			}
 		}
-		
+
 		if (!found) {
 			System.out.println("No se ha encontrado el artículo " + nombre);
 		}
@@ -99,7 +100,7 @@ public class Ejercicio03App {
 		System.out.println("4. Salir del programa");
 		System.out.println("	----------------------\n");
 	}
-	
+
 	public static void addStarterArticles(ArrayList<HashMap> articulos) {
 		HashMap<String, Object> articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "manzana");
@@ -107,63 +108,63 @@ public class Ejercicio03App {
 		articulo.put("precio", 2.45);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "pera");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 1.85);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "naranja");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 1.60);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "tomate");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 1.80);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "platano");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 1.35);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "leche");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 0.90);
 		articulo.put("IVA", 0.04);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "agua");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 0.35);
 		articulo.put("IVA", 0.04);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "galletas");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 1.60);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "helado");
 		articulo.put("cantidad", 10);
 		articulo.put("precio", 2.30);
 		articulo.put("IVA", 0.21);
 		articulos.add(articulo);
-		
+
 		articulo = new HashMap<String, Object>();
 		articulo.put("nombre", "cerveza");
 		articulo.put("cantidad", 10);
