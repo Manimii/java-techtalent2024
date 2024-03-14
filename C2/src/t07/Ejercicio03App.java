@@ -18,7 +18,7 @@ public class Ejercicio03App {
 		double precio = 0, iva = 0.21;
 
 		int choose = 0;
-		do {
+		while (choose != 4) {
 			listaMenu();
 			choose = sc.nextInt();
 			switch (choose) {
@@ -56,7 +56,7 @@ public class Ejercicio03App {
 			default:
 				System.out.println("Error. Debes introducir una opción válida.");
 			}
-		} while (choose != 4);
+		}
 	}
 
 	public static void addArticle(ArrayList<HashMap> articulos, String nombre, int cantidad, double precio, double iva) {
