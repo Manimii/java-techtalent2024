@@ -203,7 +203,6 @@ public class Ejercicio04GrupoApp {
 		double sumaTotalConIVA = 0, precio = 0;
 		int cantidad = 0;
 
-		// Print keys and values
 		for (String i : carrito.keySet()) {
 //          System.out.println("key: " + i + " value: " + carrito.get(i));
 			precio = Double.parseDouble((carrito.get(i).get("precio").toString()));
