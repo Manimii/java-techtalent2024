@@ -14,6 +14,9 @@ public class MainApp {
 		
 		Serie s = new Serie("Un título", "Un creador");
 		System.out.println(s.toString());
+		
+		Persona p = new Persona();
+		System.out.println(p.toString());
 	}
 
 }
