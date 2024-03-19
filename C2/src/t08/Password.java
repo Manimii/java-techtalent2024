@@ -23,7 +23,7 @@ public class Password {
 		return pw;
 	}
 
-	// 32-126
+	// 32-126 
 	private static int numRandom() {
 		int n = (int) (32 + (Math.random() * (126 + 1 - 32)));
 		return n;

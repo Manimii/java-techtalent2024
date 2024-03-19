@@ -12,7 +12,7 @@ public class MainApp {
 		Electrodomestico el = new Electrodomestico(10,10);
 		System.out.println(el.toString());
 		
-		Serie s = new Serie("Un título", "Un creador");
+		Serie s = new Serie("Título", "Antonio");
 		System.out.println(s.toString());
 		
 		Persona p = new Persona();
