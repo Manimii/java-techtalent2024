@@ -6,15 +6,11 @@ import java.util.Scanner;
 public class MainApp {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
 		HashMap<String, HashMap> baseDeDatos = new HashMap<String, HashMap>();
 		HashMap<String, HashMap> carrito = new HashMap<String, HashMap>();
 
 		rellenarbaseDeDatos(baseDeDatos);
 		mostrarMenu(baseDeDatos, carrito);
-
-		sc.close();
 	}
 
 	// Menús de Gestión
@@ -261,6 +257,8 @@ public class MainApp {
 		elemento.put("cantidad", 10);
 		elemento.put("IVA", 0.10);
 		baseDeDatos.put("pan", elemento);
+		
+		//BASEDEDATOS.ADD(NEW PRODUCTO(0.50,0.10,10,"PAN"));
 
 		elemento = new HashMap<String, Object>();
 		elemento.put("precio", "1.50");
