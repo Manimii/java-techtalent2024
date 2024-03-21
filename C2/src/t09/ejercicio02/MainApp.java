@@ -3,8 +3,15 @@ package t09.ejercicio02;
 public class MainApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		Serie[] series = new Serie[5];
+		Videojuego[] videojuegos = new Videojuego[5];
+		
+		
+	}
+	
+	public static void rellenarSeries(Serie[] s) {
+		
 	}
 
 }
