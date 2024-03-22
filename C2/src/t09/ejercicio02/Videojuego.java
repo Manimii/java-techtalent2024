@@ -3,7 +3,7 @@ package t09.ejercicio02;
 public class Videojuego implements Entregable {
 
 	private String titulo;
-	private double horasEstimadas;
+	private int horasEstimadas;
 	private boolean entregado;
 	private String genero;
 	private String compania;
@@ -16,13 +16,13 @@ public class Videojuego implements Entregable {
 		this.compania = "";
 	}
 
-	public Videojuego(String titulo, double horasEstimadas) {
+	public Videojuego(String titulo, int horasEstimadas) {
 		this();
 		this.titulo = titulo;
 		this.horasEstimadas = horasEstimadas;
 	}
 
-	public Videojuego(String titulo, double horasEstimadas, String genero, String compania) {
+	public Videojuego(String titulo, int horasEstimadas, String genero, String compania) {
 		this.titulo = titulo;
 		this.horasEstimadas = horasEstimadas;
 		this.genero = genero;
@@ -38,11 +38,11 @@ public class Videojuego implements Entregable {
 		this.titulo = titulo;
 	}
 
-	public double getHorasEstimadas() {
+	public int getHorasEstimadas() {
 		return horasEstimadas;
 	}
 
-	public void setHorasEstimadas(double horasEstimadas) {
+	public void setHorasEstimadas(int horasEstimadas) {
 		this.horasEstimadas = horasEstimadas;
 	}
 
@@ -84,10 +84,17 @@ public class Videojuego implements Entregable {
 	}
 
 	@Override
-	public void compareTo(Object a) {
-		Serie s = (Serie) a;
-		System.out.println("Horas estimadas del videojuego: " + this.horasEstimadas
-				+ "\n Número de temporadas de la serie: " + s.getnTemporadas());
+	public Object compareTo(Object a) {
+		Videojuego v = (Videojuego) a;
+		int horas1 = this.horasEstimadas;
+		int horas2 = v.horasEstimadas;
+		
+		if (horas1 >= horas2) {
+			return this;
+		}
+		
+		return v;
+		
 	}
 
 }
