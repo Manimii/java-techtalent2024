@@ -23,7 +23,9 @@ public class MainApp {
 			precioTotal += precioActual;
 		}
 		
-		System.out.println("\nPrecio total de las televisiones: " + precioTelevisiones);
+		System.out.println("\nLavadoras totales: " + nLavadoras);
+		System.out.println("Televisiones totales: " + nTelevisiones);
+		System.out.println("Precio total de las televisiones: " + precioTelevisiones);
 		System.out.println("Precio total de las lavadoras: " + precioLavadoras);
 		System.out.println("Precio total de los electrodomésticos: " + precioTotal);
 	}
