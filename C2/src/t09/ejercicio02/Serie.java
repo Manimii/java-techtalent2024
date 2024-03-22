@@ -85,7 +85,9 @@ public class Serie implements Entregable{
 
 	@Override
 	public void compareTo(Object a) {
-		
+		Videojuego v = (Videojuego) a;
+		System.out.println("Horas estimadas del videojuego: " + v.getHorasEstimadas()
+				+ "\n Número de temporadas de la serie: " + this.nTemporadas);
 	}
 
 	
