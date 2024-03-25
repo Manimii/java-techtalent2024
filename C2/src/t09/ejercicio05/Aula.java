@@ -25,8 +25,6 @@ public class Aula {
 		this.alumnos = new Alumno[maxEstudiantes];
 		this.profesor = profesor;
 	}
-	
-	
 
 	public Aula(int id, int maxEstudiantes, Materia materia, Alumno[] alumnos, Profesor profesor) {
 		this.id = id;
@@ -37,7 +35,8 @@ public class Aula {
 	}
 
 	public boolean darClase() {
-		return (!this.profesor.estaAusente() || this.profesor.getMateria() == this.materia || alumnosDisponibles());
+		return ((!this.profesor.estaAusente()) && (this.profesor.getMateria() == this.materia)
+				&& (alumnosDisponibles()));
 	}
 
 	public boolean alumnosDisponibles() {
@@ -47,7 +46,7 @@ public class Aula {
 				count++;
 			}
 		}
-
+		// System.out.println("cuenta " + count);
 		return (count < (this.alumnos.length / 2));
 	}
 
@@ -64,13 +63,14 @@ public class Aula {
 						mujeresAprobadas++;
 					}
 				}
-				
-				System.out.println(this.alumnos[i].getNombre() + ": " + this.alumnos[i].getNota());
+
+				// System.out.println(this.alumnos[i].getNombre() + ": " +
+				// this.alumnos[i].getNota());
 			}
 			System.out.println("Hombres aprobados: " + hombresAprobados);
-			System.out.println("Mujeres aprobadas: " + mujeresAprobadas);
+			System.out.println("Mujeres aprobadas: " + mujeresAprobadas + "\n");
 		} else {
-			System.out.println("No se ha podido dar clase");
+			System.out.println("No se ha podido dar clase\n");
 		}
 	}
 

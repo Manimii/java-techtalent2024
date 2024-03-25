@@ -18,12 +18,9 @@ public class Profesor extends Persona {
 	@Override
 	// 20% true 80% false
 	public boolean estaAusente() {
-		boolean b = false;
 		int random = (int) (Math.random() * 5);
-		if (random == 0) {
-			b = true;
-		}
-		return b;
+		//System.out.println("Profesor ausente: " + random);
+		return (random == 0);
 	}
 
 	public Materia getMateria() {

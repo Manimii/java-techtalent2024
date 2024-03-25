@@ -32,12 +32,9 @@ public class Alumno extends Persona {
 	@Override
 	// 50% true 50% false
 	public boolean estaAusente() {
-		boolean b = false;
 		int random = (int) (Math.random() * 2);
-		if (random == 0) {
-			b = true;
-		}
-		return b;
+		//System.out.println("Alumno ausente: " + random);
+		return (random == 0);
 	}
 
 	public int getNota() {
