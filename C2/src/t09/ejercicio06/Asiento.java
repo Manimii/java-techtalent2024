@@ -1,6 +1,6 @@
 package t09.ejercicio06;
 
-public class Asiento extends Espectador {
+public class Asiento {
 
 	private int fila;
 	private char columna;
@@ -12,10 +12,7 @@ public class Asiento extends Espectador {
 		this.ocupado = false;
 	}
 
-	public Asiento(Pelicula pelicula, double precio, int filas, int columnas, String titulo, int duracion,
-			int edadMinima, String director, String nombre, int edad, double dinero, int fila, char columna,
-			boolean ocupado) {
-		super(pelicula, precio, filas, columnas, titulo, duracion, edadMinima, director, nombre, edad, dinero);
+	public Asiento(int fila, char columna, boolean ocupado) {
 		this.fila = fila;
 		this.columna = columna;
 		this.ocupado = ocupado;
@@ -24,10 +21,10 @@ public class Asiento extends Espectador {
 	public void sentarEspectadores() {
 
 	}
-
-//	public boolean puedeSentarse() {
-//		
-//	}
+	
+	public boolean canSit() {
+		return false;
+	}
 
 	public int getfila() {
 		return fila;

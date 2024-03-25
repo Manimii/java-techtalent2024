@@ -1,29 +1,22 @@
 package t09.ejercicio06;
 
-public class Espectador extends Pelicula {
+public class Espectador {
 
 	private String nombre;
 	private int edad;
 	private double dinero;
 
 	public Espectador() {
-		super();
 		this.nombre = "";
 		this.edad = 18;
 		this.dinero = 50;
 	}
 
-	public Espectador(Pelicula pelicula, double precio, int filas, int columnas, String titulo, int duracion,
-			int edadMinima, String director, String nombre, int edad, double dinero) {
-		super(pelicula, precio, filas, columnas, titulo, duracion, edadMinima, director);
+	public Espectador(String nombre, int edad, double dinero) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.dinero = dinero;
 	}
-
-//	public boolean tieneDinero() {
-//	return (this.dinero >= super.get)
-//}
 
 	public String getNombre() {
 		return nombre;

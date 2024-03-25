@@ -1,6 +1,6 @@
 package t09.ejercicio06;
 
-public class Pelicula extends Cine {
+public class Pelicula {
 
 	private String titulo;
 	private int duracion;
@@ -8,16 +8,13 @@ public class Pelicula extends Cine {
 	private String director;
 
 	public Pelicula() {
-		super();
 		this.titulo = "título";
 		this.duracion = 60;
 		this.edadMinima = 18;
 		this.director = "director";
 	}
 
-	public Pelicula(Pelicula pelicula, double precio, int filas, int columnas, String titulo, int duracion,
-			int edadMinima, String director) {
-		super(pelicula, precio, filas, columnas);
+	public Pelicula(String titulo, int duracion, int edadMinima, String director) {
 		this.titulo = titulo;
 		this.duracion = duracion;
 		this.edadMinima = edadMinima;
@@ -58,8 +55,8 @@ public class Pelicula extends Cine {
 
 	@Override
 	public String toString() {
-		return "Pelicula [titulo=" + titulo + ", duracion=" + duracion + ", edadMinima=" + edadMinima + ", director="
-				+ director + "]";
+		return "Pelicula [titulo=" + titulo + ", duracion=" + duracion + ", edadMinima=" + edadMinima + ", director=" + director
+				+ "]";
 	}
 
 }
