@@ -37,7 +37,7 @@ public class Aula {
 	}
 
 	public boolean darClase() {
-		return !this.profesor.estaAusente() || this.profesor.getMateria() == this.materia || alumnosDisponibles();
+		return (!this.profesor.estaAusente() || this.profesor.getMateria() == this.materia || alumnosDisponibles());
 	}
 
 	public boolean alumnosDisponibles() {
@@ -65,7 +65,7 @@ public class Aula {
 					}
 				}
 				
-				System.out.println(this.alumnos[i].getNombre() + ": " + this.alumnos[i].getEdad());
+				System.out.println(this.alumnos[i].getNombre() + ": " + this.alumnos[i].getNota());
 			}
 			System.out.println("Hombres aprobados: " + hombresAprobados);
 			System.out.println("Mujeres aprobadas: " + mujeresAprobadas);
