@@ -18,15 +18,10 @@ public class MainApp {
 
 		System.out.println("Introduce el número de espectadores que van al cine:");
 		int n = sc.nextInt();
-		if (n > capacidad) {
-			n = capacidad;
-			System.out.println("Solo caben " + capacidad + " personas en el cine");
-		}
 		Espectador[] espectadores = new Espectador[n];
+		
 		generarEspectadores(n, espectadores);
-
 		sentarEspectadores(espectadores, capacidad, c, asientos, p);
-
 		dibujarCine(asientos);
 		
 		sc.close();
@@ -35,30 +30,30 @@ public class MainApp {
 	public static void sentarEspectadores(Espectador[] espectadores, int capacidad, Cine c, Asiento[][] asientos, Pelicula p) {
 		int count = 0;
 		//Mientras queden espectadores por asignarle un asiento
-		while (count < espectadores.length) {
+		while (count < espectadores.length && hayEspacio(asientos)) {
 			int fila = generarAsiento(c.getFilas());
 			int columna = generarAsiento(c.getColumnas());
 			while (asientos[fila][columna].isOcupado()) {
 				fila = generarAsiento(c.getFilas());
 				columna = generarAsiento(c.getColumnas());
 			}
-			if (puedeSentarse(espectadores[count], c, p, asientos[fila][columna], espectadores.length)) {
+			if (puedeSentarse(espectadores[count], c, p, asientos)) {
 				asientos[fila][columna].ocuparAsiento();	
 			} else {
-				System.out.println(espectadores[count].getNombre() + " No puede ver la película " + count);
+				System.out.println(espectadores[count].getNombre() + " No puede ver la película.");
 			}
 			count++;
 		}
 	}
 
 	public static int generarAsiento(int n) {
-		return (int) Math.random() * n;
+		return (int) (Math.random() * n);
 	}
 
 	public static void generarEspectadores(int n, Espectador[] espectadores) {
 		for (int i = 0; i < n; i++) {
 			espectadores[i] = new Espectador();
-			System.out.println(espectadores[i].toString());
+			//System.out.println(espectadores[i].toString());
 		}
 	}
 
@@ -88,16 +83,23 @@ public class MainApp {
 		}
 	}
 
-	public static boolean puedeSentarse(Espectador e, Cine c, Pelicula p, Asiento a, int nEspectadores) {
-		return ((tieneDinero(e, c)) && (hayEspacio(c, nEspectadores)) && (tieneEdad(p, e)));
+	public static boolean puedeSentarse(Espectador e, Cine c, Pelicula p, Asiento[][] a) {
+		return ((tieneDinero(e, c)) && (tieneEdad(p, e)));
 	}
 
 	public static boolean tieneDinero(Espectador e, Cine c) {
 		return (e.getDinero() >= c.getPrecio());
 	}
 
-	public static boolean hayEspacio(Cine c, int nEspectadores) {
-		return (nEspectadores < (c.getColumnas() * c.getFilas()));
+	public static boolean hayEspacio(Asiento[][] asientos) {
+		for (int i = 0; i < asientos.length; i++) {
+			for (int j = 0; j < asientos[i].length; j++) {
+				if (!asientos[i][j].isOcupado()) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public static boolean tieneEdad(Pelicula p, Espectador e) {

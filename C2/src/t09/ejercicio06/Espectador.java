@@ -18,10 +18,10 @@ public class Espectador {
 	
 	public void generarEspectadorRandom() {
 		Nombres[] nombres = Nombres.values();
-		int random = (int) Math.random() * 40;
+		int random = (int) (Math.random() * 40);
 		this.nombre = nombres[random].toString();
 		
-		random = (int) Math.random() * 100;
+		random = (int) (Math.random() * 100);
 		this.edad = random;
 		
 		double r = Math.random() * 100;
