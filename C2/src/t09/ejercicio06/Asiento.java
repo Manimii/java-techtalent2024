@@ -38,8 +38,8 @@ public class Asiento {
 		return ocupado;
 	}
 
-	public void setOcupado(boolean ocupado) {
-		this.ocupado = ocupado;
+	public void ocuparAsiento() {
+		this.ocupado = true;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package t09.ejercicio06;
 
-//39 elementos
+//40 elementos
 public enum Nombres {
 	Antonio,
 	Manuel,
