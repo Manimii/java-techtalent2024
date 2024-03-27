@@ -18,14 +18,6 @@ public class Asiento {
 		this.ocupado = ocupado;
 	}
 
-	public void sentarEspectadores() {
-
-	}
-	
-	public boolean canSit() {
-		return false;
-	}
-
 	public int getfila() {
 		return fila;
 	}

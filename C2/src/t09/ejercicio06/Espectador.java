@@ -7,15 +7,26 @@ public class Espectador {
 	private double dinero;
 
 	public Espectador() {
-		this.nombre = "";
-		this.edad = 18;
-		this.dinero = 50;
+		generarEspectadorRandom();
 	}
 
 	public Espectador(String nombre, int edad, double dinero) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.dinero = dinero;
+	}
+	
+	public void generarEspectadorRandom() {
+		Nombres[] nombres = Nombres.values();
+		int random = (int) Math.random() * 40;
+		this.nombre = nombres[random].toString();
+		
+		random = (int) Math.random() * 100;
+		this.edad = random;
+		
+		double r = Math.random() * 100;
+		this.dinero = r;
+		
 	}
 
 	public String getNombre() {
