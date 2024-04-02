@@ -26,7 +26,7 @@ public class Alumno extends Persona {
 	}
 
 	public int generarNota() {
-		return (int) (1 + Math.random() * 10);
+		return (int) (1 + Math.random() * 11) - 1;
 	}
 
 	@Override

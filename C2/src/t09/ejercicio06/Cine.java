@@ -21,17 +21,6 @@ public class Cine {
 		this.columnas = columnas;
 	}
 
-	public void dibujarCine() {
-		for (int i = this.filas; i > 0; i--) {
-			for (int j = 0; j < this.columnas; j++) {
-				char c = (char) (65 + j);
-				System.out.print(Integer.toString(i) + c + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-
 	public Pelicula getPelicula() {
 		return pelicula;
 	}
