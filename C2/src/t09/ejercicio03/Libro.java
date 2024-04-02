@@ -55,13 +55,14 @@ public class Libro {
 
 	@Override
 	public String toString() {
-		return "El libro " + this.titulo + " con ISBN " + this.isbn + " creado por " + this.autor + " tiene " + this.nPaginas + " páginas";
+		return "El libro " + this.titulo + " con ISBN " + this.isbn + " creado por " + this.autor + " tiene "
+				+ this.nPaginas + " páginas";
 	}
-	
+
 	public Libro compararPaginas(Libro l) {
 		int paginas1 = this.nPaginas;
 		int paginas2 = l.nPaginas;
-		
+
 		if (paginas1 >= paginas2) {
 			return this;
 		}
