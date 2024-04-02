@@ -13,6 +13,8 @@ public class MainApp {
 		double c = sc.nextDouble();
 		Raices r = new Raices(a, b, c);
 		r.calcular();
+
+		sc.close();
 	}
 
 }
