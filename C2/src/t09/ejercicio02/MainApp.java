@@ -21,7 +21,7 @@ public class MainApp {
 
 	public static void rellenarSeries(Serie[] s) {
 		s[0] = new Serie();
-		s[1] = new Serie("t1", "c1");
+		s[1] = new Serie("t1", "c1");	
 		s[2] = new Serie("t2", 11, "g2", "c2");
 		s[3] = new Serie("t3", 7, "g3", "c3");
 		s[4] = new Serie("t4", 18, "g4", "c4");
@@ -67,9 +67,9 @@ public class MainApp {
 	}
 
 	public static String masTemporadas(Serie[] s) {
-		Serie serieMasTemporadas = new Serie();
+		Serie serieMasTemporadas = s[0];
 		
-		for (int i = 0; i < s.length; i++) {
+		for (int i = 1; i < s.length; i++) {
 			serieMasTemporadas = (Serie) serieMasTemporadas.compareTo(s[i]);
 		}
 		
@@ -77,9 +77,9 @@ public class MainApp {
 	}
 	
 	public static String masHoras(Videojuego[] v) {
-		Videojuego videojuegoMasHoras = new Videojuego();
+		Videojuego videojuegoMasHoras = v[0];
 		
-		for (int i = 0; i < v.length; i++) {
+		for (int i = 1; i < v.length; i++) {
 			videojuegoMasHoras = (Videojuego) videojuegoMasHoras.compareTo(v[i]);
 		}
 		
