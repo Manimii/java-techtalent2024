@@ -29,7 +29,7 @@ public class MainApp {
 
 	public static void sentarEspectadores(Espectador[] espectadores, int capacidad, Cine c, Asiento[][] asientos, Pelicula p) {
 		int count = 0;
-		//Mientras queden espectadores por asignarle un asiento
+		//Mientras queden espectadores por asignarle un asiento y quede espacio en la sala
 		while (count < espectadores.length && hayEspacio(asientos)) {
 			int fila = generarAsiento(c.getFilas());
 			int columna = generarAsiento(c.getColumnas());
