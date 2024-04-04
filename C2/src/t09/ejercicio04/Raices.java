@@ -12,15 +12,15 @@ public class Raices {
 		this.c = c;
 	}
 
-	public double getDiscriminante() {
+	private double getDiscriminante() {
 		return (b * b) - (4 * a * c);
 	}
 
-	public boolean tieneRaices() {
+	private boolean tieneRaices() {
 		return getDiscriminante() > 0;
 	}
 
-	public boolean tieneRaiz() {
+	private boolean tieneRaiz() {
 		return getDiscriminante() == 0;
 	}
 
@@ -34,7 +34,7 @@ public class Raices {
 		}
 	}
 
-	public void obtenerRaices() {
+	private void obtenerRaices() {
 		double resultado1 = 0, resultado2 = 0;
 
 		resultado1 = (-b + Math.sqrt(getDiscriminante())) / (2 * a);
@@ -44,7 +44,7 @@ public class Raices {
 		System.out.println("Resultado 2: " + resultado2);
 	}
 
-	public void obtenerRaiz() {
+	private void obtenerRaiz() {
 		double resultado = (-b + Math.sqrt(getDiscriminante())) / (2 * a);
 		System.out.println("Resultado: " + resultado);
 	}
