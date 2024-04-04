@@ -30,7 +30,7 @@ public class Raices {
 		} else if (tieneRaiz()) {
 			obtenerRaiz();
 		} else {
-			System.out.println("La ecuación no tiene solución");
+			System.out.println("La ecuación no tiene solución real.");
 		}
 	}
 
