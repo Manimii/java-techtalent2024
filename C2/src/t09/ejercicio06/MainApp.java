@@ -8,7 +8,7 @@ public class MainApp {
 		Scanner sc = new Scanner(System.in);
 
 		Pelicula p = new Pelicula("Titánic", 120, 12, "Director");
-		Cine c = new Cine(p, 20, 8, 8);
+		Cine c = new Cine(p, 20, 9, 8);
 
 		int capacidad = c.getColumnas() * c.getFilas();
 		Asiento[][] asientos = new Asiento[c.getFilas()][c.getColumnas()];
@@ -38,7 +38,7 @@ public class MainApp {
 				fila = generarAsiento(c.getFilas());
 				columna = generarAsiento(c.getColumnas());
 			}
-			if (puedeSentarse(espectadores[count], c, p, asientos)) {
+			if (puedeSentarse(espectadores[count], c, p)) {
 				asientos[fila][columna].ocuparAsiento();	
 			} else {
 				System.out.println(espectadores[count].getNombre() + " No puede ver la película.");
@@ -84,7 +84,7 @@ public class MainApp {
 		}
 	}
 
-	public static boolean puedeSentarse(Espectador e, Cine c, Pelicula p, Asiento[][] a) {
+	public static boolean puedeSentarse(Espectador e, Cine c, Pelicula p) {
 		return ((tieneDinero(e, c)) && (tieneEdad(p, e)));
 	}
 
