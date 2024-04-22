@@ -38,11 +38,11 @@ SELECT nombre, (precio * 166.386) AS precio_en_pesetas
 FROM articulos
 
 -- 1.6 Seleccionar el precio medio de todos los productos
-SELECT SUM(precio)/COUNT(precio) AS precio_medio
+SELECT AVG(precio) AS precio_medio
 FROM articulos
 
 -- 1.7 Obtener el precio medio de los artículos cuyo código de fabricante sea 2.
-SELECT SUM(precio)/COUNT(precio) AS precio_medio
+SELECT AVG(precio) AS precio_medio
 FROM articulos
 WHERE codigo = 2;
 
@@ -70,12 +70,12 @@ INNER JOIN fabricantes ON fabricante = fabricantes.codigo;
 -- 1.12 Obtener el precio medio de los productos de cada fabricante, mostrando solo los códigos de fabricante.
 INSERT INTO articulos (nombre, precio, fabricante) VALUES ('a11', 200, 3)
 
-SELECT fabricante, SUM(precio)/COUNT(precio) AS precio_medio
+SELECT fabricante, AVG(precio) AS precio_medio
 FROM articulos
 GROUP BY fabricante
 
 -- 1.13 Obtener el precio medio de los productos de cada fabricante, mostrando el nombre del fabricante
-SELECT fabricante, fabricantes.nombre, SUM(precio)/COUNT(precio) AS precio_medio
+SELECT fabricante, fabricantes.nombre, AVG(precio) AS precio_medio
 FROM articulos
 INNER JOIN fabricantes ON fabricante = fabricantes.codigo
 GROUP BY fabricante
@@ -85,9 +85,43 @@ SELECT articulos.fabricante, fabricantes.nombre, SUM(articulos.precio)/COUNT(art
 FROM fabricantes
 INNER JOIN articulos ON articulos.fabricante = fabricantes.codigo
 WHERE (
-	SELECT SUM(precio)/COUNT(precio)
+	SELECT AVG(precio)
 	FROM articulos
 	WHERE fabricante = fabricantes.codigo
 	GROUP BY fabricante
 ) >= 80
 GROUP BY articulos.fabricante
+
+-- 1.15 Obtener el nombre y el precio del artículo más barato.
+SELECT nombre, precio 
+FROM articulos
+ORDER BY precio 
+LIMIT 1
+
+-- 1.16 Obtener una lista con el nombre y precio de los artículos más caros de cada proveedor (incluyendo el nombre del proveedor).
+SELECT a.nombre AS nombre_articulo, a.precio, f.nombre AS nombre_fabricante
+FROM articulos a, fabricantes f
+WHERE a.fabricante = f.codigo AND a.precio = (
+	SELECT MAX(ar.precio)
+	FROM articulos ar
+	WHERE ar.fabricante = f.codigo
+)
+ORDER BY a.fabricante
+
+-- 1.17 Añadir un nuevo producto: Altavoces de 70€ (del fabricante 2)
+INSERT INTO articulos (nombre, precio, fabricante)
+VALUES ('Altavoz', 70, 2)
+
+-- 1.18 Cambiar el nombre del producto 8 a ‘Impresora Laser’
+UPDATE articulos 
+SET nombre = 'Impresora Laser'
+WHERE codigo = 8
+
+-- 1.19 Aplicar un descuento del 10% (multiplicar el precio por 0,9) a todos los productos
+UPDATE articulos 
+SET precio = precio * 0.9 
+
+-- 1.20 Aplicar un descuento de 10€ a todos los productos cuyo precio sea mayor o igual a 120€
+UPDATE articulos
+SET precio = precio - 10
+WHERE precio >= 120
