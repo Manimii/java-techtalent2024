@@ -51,7 +51,7 @@ WHERE departamento = 4
 -- 2.6 Obtener todos los datos de los empleados que trabajan para el departamento 37 y para el departamento 77 (3 y 7 en mi caso ya que mi Base de Datos no tiene esos departamentos)
 SELECT *
 FROM empleados
-WHERE departamento = 3 OR departamento = 7
+WHERE departamento IN (3,7)
 
 -- 2.7 Obtener todos los datos de los empleados cuyo apellido comience por ‘P’
 SELECT *
@@ -68,14 +68,14 @@ FROM empleados
 GROUP BY departamento
 
 -- 2.10 Obtener un listado completo de empleados, incluyendo por cada empleado los datos del empleado y de su departamento
-SELECT e.dni, e.nombre, e.apellidos, e.departamento, d.nombre, d.presupuesto
-FROM empleados e
-LEFT OUTER JOIN departamentos d ON e.departamento = d.codigo
+SELECT e.*, d.*
+FROM empleados e, departamentos d 
+WHERE e.departamento = d.codigo
 
 -- 2.11 Obtener un listado completo de empleados, incluyendo el nombre y apellidos del empleado junto al nombre y presupuesto de su departamento
-SELECT e.nombre, e.apellidos, d.nombre AS nombre_departamento, d.presupuesto AS presupuesto_departamento
-FROM empleados e
-LEFT OUTER JOIN departamentos d ON e.departamento = d.codigo
+SELECT e.nombre, e.apellidos, d.nombre AS "Nombre departamento", d.presupuesto AS "Presupuesto departamento"
+FROM empleados e, departamentos d 
+WHERE e.departamento = d.codigo
 
 -- 2.12 Obtener los nombres y apellidos de los empleados que trabajen en departamentos cuyo presupuesto sea mayor de 60.000€ (18.000€ en mi caso).
 SELECT e.nombre, e.apellidos, d.presupuesto AS presupuesto_departamento
