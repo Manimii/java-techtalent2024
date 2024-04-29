@@ -101,15 +101,10 @@ VALUES
 ('55667788', 'Daniel', 'Moreno', 5);
 
 SELECT d.nombre
-FROM departamentos d, empleados e
-WHERE d.codigo = e.departamento AND 2 <= 
-(
-	SELECT COUNT(em.dni)
-	FROM empleados em
-	WHERE em.departamento = d.codigo
-	GROUP BY em.departamento
-)
-GROUP BY d.nombre
+FROM empleados em, departamentos d
+WHERE em.departamento = d.codigo 
+GROUP BY em.departamento
+HAVING COUNT(em.dni) >= 2
 
 -- 2.15 Añadir un nuevo departamento: ‘Calidad’, con presupuesto de 40.000€ y código 11. Añadir un empleado vinculado al departamento recién creado: Esther Vázquez, DNI: 89267109
 INSERT INTO departamentos (nombre, presupuesto)
