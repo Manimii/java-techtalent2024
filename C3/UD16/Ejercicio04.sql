@@ -54,8 +54,8 @@ LEFT OUTER JOIN peliculas p ON p.codigo = s.pelicula
 
 -- 4.6 Mostrar la información de todas las películas y, si se proyecta en alguna sala, mostrar también la información de la sala.
 SELECT p.*, s.*
-FROM peliculas p
-LEFT OUTER JOIN salas s ON p.codigo = s.pelicula
+FROM peliculas p LEFT OUTER JOIN salas s 
+ON p.codigo = s.pelicula
 
 -- 4.7 Mostrar los nombres de las películas que no se proyectan en ninguna sala.
 SELECT p.nombre, p.codigo
