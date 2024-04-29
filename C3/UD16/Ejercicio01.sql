@@ -44,7 +44,7 @@ FROM articulos
 -- 1.7 Obtener el precio medio de los artículos cuyo código de fabricante sea 2.
 SELECT AVG(precio) AS precio_medio
 FROM articulos
-WHERE codigo = 2;
+WHERE fabricante = 2;
 
 -- 1.8 Obtener el número de artículos cuyo precio sea mayor o igual a 80€ 
 SELECT COUNT(*) AS num_articulos
