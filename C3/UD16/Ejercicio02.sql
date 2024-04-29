@@ -69,13 +69,13 @@ GROUP BY departamento
 
 -- 2.10 Obtener un listado completo de empleados, incluyendo por cada empleado los datos del empleado y de su departamento
 SELECT e.*, d.*
-FROM empleados e, departamentos d 
-WHERE e.departamento = d.codigo
+FROM empleados e LEFT OUTER JOIN departamentos d 
+ON e.departamento = d.codigo
 
 -- 2.11 Obtener un listado completo de empleados, incluyendo el nombre y apellidos del empleado junto al nombre y presupuesto de su departamento
 SELECT e.nombre, e.apellidos, d.nombre AS "Nombre departamento", d.presupuesto AS "Presupuesto departamento"
-FROM empleados e, departamentos d 
-WHERE e.departamento = d.codigo
+FROM empleados e LEFT OUTER JOIN departamentos d 
+ON e.departamento = d.codigo
 
 -- 2.12 Obtener los nombres y apellidos de los empleados que trabajen en departamentos cuyo presupuesto sea mayor de 60.000€ (18.000€ en mi caso).
 SELECT e.nombre, e.apellidos, d.presupuesto AS presupuesto_departamento
@@ -91,7 +91,7 @@ WHERE presupuesto >
 	FROM departamentos
 )
 
--- 2.14 Obtener los nombres (únicamente los nombres) de los departamentos que tienen más de dos empleados. (Como en mi caso no hay ningún departamento con más de un empleado, generaré 5 empleados extra)
+-- 2.14 Obtener los nombres (únicamente los nombres) de los departamentos que tienen más de dos empleados. (Como en mi caso no hay ningún departamento con más de un empleado, generaré 5 empleados extra) 
 INSERT INTO empleados
 VALUES 
 ('11223344', 'Alejandro', 'Hernández', 1),
