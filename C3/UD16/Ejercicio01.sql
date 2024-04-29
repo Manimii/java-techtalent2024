@@ -75,22 +75,17 @@ FROM articulos
 GROUP BY fabricante
 
 -- 1.13 Obtener el precio medio de los productos de cada fabricante, mostrando el nombre del fabricante
-SELECT fabricante, fabricantes.nombre, AVG(precio) AS precio_medio
-FROM articulos
-INNER JOIN fabricantes ON fabricante = fabricantes.codigo
+SELECT fabricante, f.nombre, AVG(precio) AS "Precio medio"
+FROM articulos INNER JOIN fabricantes f
+ON fabricante = f.codigo
 GROUP BY fabricante
 
 -- 1.14 Obtener los nombres de los fabricantes que ofrezcan productos cuyo precio medio sea mayor o igual a 80€
-SELECT articulos.fabricante, fabricantes.nombre, SUM(articulos.precio)/COUNT(articulos.precio) AS precio_medio
-FROM fabricantes
-INNER JOIN articulos ON articulos.fabricante = fabricantes.codigo
-WHERE (
-	SELECT AVG(precio)
-	FROM articulos
-	WHERE fabricante = fabricantes.codigo
-	GROUP BY fabricante
-) >= 80
-GROUP BY articulos.fabricante
+SELECT a.fabricante, f.nombre, AVG(a.precio) AS "Precio medio"
+FROM fabricantes f, articulos a
+WHERE  a.fabricante = f.codigo
+GROUP BY a.fabricante
+HAVING AVG(a.precio) >= 80
 
 -- 1.15 Obtener el nombre y el precio del artículo más barato.
 SELECT nombre, precio 
@@ -99,9 +94,10 @@ ORDER BY precio
 LIMIT 1
 
 -- 1.16 Obtener una lista con el nombre y precio de los artículos más caros de cada proveedor (incluyendo el nombre del proveedor).
-SELECT a.nombre AS nombre_articulo, a.precio, f.nombre AS nombre_fabricante
+SELECT a.nombre AS "Articulo mas caro", a.precio, f.nombre AS "Nombre fabricante"
 FROM articulos a, fabricantes f
-WHERE a.fabricante = f.codigo AND a.precio = (
+WHERE a.fabricante = f.codigo AND a.precio = 
+(
 	SELECT MAX(ar.precio)
 	FROM articulos ar
 	WHERE ar.fabricante = f.codigo
