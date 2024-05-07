@@ -52,10 +52,5 @@ db.reserva.insertMany([
   { DNI: "78901234G", numSerie: 1007, comienzo: new Date("2024-05-16"), Fin: new Date("2024-05-18") },
   { DNI: "89012345H", numSerie: 1008, comienzo: new Date("2024-05-17"), Fin: new Date("2024-05-19") },
   { DNI: "90123456I", numSerie: 1009, comienzo: new Date("2024-05-18"), Fin: new Date("2024-05-20") },
-  { DNI: "01234567J", numSerie: 1010, comienzo: new Date("2024-05-19"), Fin: new Date("2024-05-21") },
-  { DNI: "12345678K", numSerie: 1001, comienzo: new Date("2024-05-20"), Fin: new Date("2024-05-22") },
-  { DNI: "23456789L", numSerie: 1002, comienzo: new Date("2024-05-21"), Fin: new Date("2024-05-23") },
-  { DNI: "34567890M", numSerie: 1003, comienzo: new Date("2024-05-22"), Fin: new Date("2024-05-24") },
-  { DNI: "45678901N", numSerie: 1004, comienzo: new Date("2024-05-23"), Fin: new Date("2024-05-25") },
-  { DNI: "56789012O", numSerie: 1005, comienzo: new Date("2024-05-24"), Fin: new Date("2024-05-26") }
+  { DNI: "01234567J", numSerie: 1010, comienzo: new Date("2024-05-19"), Fin: new Date("2024-05-21") }
 ]);

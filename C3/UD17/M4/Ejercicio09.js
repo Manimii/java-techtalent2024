@@ -27,10 +27,5 @@ db.asignado_a.insertMany([
   { DNI: "23456789B", _idProyecto: "P002" },
   { DNI: "34567890C", _idProyecto: "P003" },
   { DNI: "45678901D", _idProyecto: "P004" },
-  { DNI: "56789012E", _idProyecto: "P005" },
-  { DNI: "67890123F", _idProyecto: "P001" },
-  { DNI: "78901234G", _idProyecto: "P002" },
-  { DNI: "89012345H", _idProyecto: "P003" },
-  { DNI: "90123456I", _idProyecto: "P004" },
-  { DNI: "01234567J", _idProyecto: "P005" }
+  { DNI: "56789012E", _idProyecto: "P005" }
 ]);
