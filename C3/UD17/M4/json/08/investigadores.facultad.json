@@ -1,0 +1,20 @@
+[{
+  "_id": 1,
+  "nombre": "Facultad de Ciencias Naturales"
+},
+{
+  "_id": 2,
+  "nombre": "Facultad de Ingeniería"
+},
+{
+  "_id": 3,
+  "nombre": "Facultad de Ciencias Sociales"
+},
+{
+  "_id": 4,
+  "nombre": "Facultad de Medicina"
+},
+{
+  "_id": 5,
+  "nombre": "Facultad de Artes y Humanidades"
+}]

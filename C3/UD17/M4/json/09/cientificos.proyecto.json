@@ -1,0 +1,25 @@
+[{
+  "_id": "P001",
+  "nombre": "Proyecto A",
+  "horas": 120
+},
+{
+  "_id": "P002",
+  "nombre": "Proyecto B",
+  "horas": 80
+},
+{
+  "_id": "P003",
+  "nombre": "Proyecto C",
+  "horas": 200
+},
+{
+  "_id": "P004",
+  "nombre": "Proyecto D",
+  "horas": 150
+},
+{
+  "_id": "P005",
+  "nombre": "Proyecto E",
+  "horas": 100
+}]

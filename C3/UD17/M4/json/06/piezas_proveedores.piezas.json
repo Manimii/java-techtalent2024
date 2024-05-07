@@ -1,0 +1,20 @@
+[{
+  "_id": 1,
+  "nombre": "Tornillo"
+},
+{
+  "_id": 2,
+  "nombre": "Tuerca"
+},
+{
+  "_id": 3,
+  "nombre": "Arandela"
+},
+{
+  "_id": 4,
+  "nombre": "Remache"
+},
+{
+  "_id": 5,
+  "nombre": "Resorte"
+}]

@@ -1,0 +1,20 @@
+[{
+  "_id": 1,
+  "nomApels": "Juan Pérez"
+},
+{
+  "_id": 2,
+  "nomApels": "María García"
+},
+{
+  "_id": 3,
+  "nomApels": "Pedro López"
+},
+{
+  "_id": 4,
+  "nomApels": "Ana Ruiz"
+},
+{
+  "_id": 5,
+  "nomApels": "Carlos Sánchez"
+}]

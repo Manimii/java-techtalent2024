@@ -1,0 +1,25 @@
+[{
+  "_id": 1,
+  "nombre": "Titanic",
+  "calificacionEdad": 13
+},
+{
+  "_id": 2,
+  "nombre": "El Padrino",
+  "calificacionEdad": 18
+},
+{
+  "_id": 3,
+  "nombre": "Toy Story",
+  "calificacionEdad": 0
+},
+{
+  "_id": 4,
+  "nombre": "Jurassic Park",
+  "calificacionEdad": 13
+},
+{
+  "_id": 5,
+  "nombre": "Harry Potter y la Piedra Filosofal",
+  "calificacionEdad": 7
+}]

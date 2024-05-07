@@ -1,0 +1,25 @@
+[{
+  "_id": 1,
+  "nombre": "Camiseta",
+  "precio": 19.99
+},
+{
+  "_id": 2,
+  "nombre": "Pantalón",
+  "precio": 29.99
+},
+{
+  "_id": 3,
+  "nombre": "Zapatos",
+  "precio": 39.99
+},
+{
+  "_id": 4,
+  "nombre": "Bufanda",
+  "precio": 9.99
+},
+{
+  "_id": 5,
+  "nombre": "Gorra",
+  "precio": 14.99
+}]

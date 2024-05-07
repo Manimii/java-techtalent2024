@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "66389fa410be554ea605891a"
+  },
+  "_idPieza": 1,
+  "_idProveedor": 1,
+  "precio": 10.5
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea605891b"
+  },
+  "_idPieza": 2,
+  "_idProveedor": 2,
+  "precio": 8.75
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea605891c"
+  },
+  "_idPieza": 3,
+  "_idProveedor": 3,
+  "precio": 12
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea605891d"
+  },
+  "_idPieza": 4,
+  "_idProveedor": 4,
+  "precio": 9.99
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea605891e"
+  },
+  "_idPieza": 5,
+  "_idProveedor": 5,
+  "precio": 11.25
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea605891f"
+  },
+  "_idPieza": 1,
+  "_idProveedor": 2,
+  "precio": 9
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea6058920"
+  },
+  "_idPieza": 2,
+  "_idProveedor": 3,
+  "precio": 10.25
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea6058921"
+  },
+  "_idPieza": 3,
+  "_idProveedor": 4,
+  "precio": 8.5
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea6058922"
+  },
+  "_idPieza": 4,
+  "_idProveedor": 5,
+  "precio": 12.75
+},
+{
+  "_id": {
+    "$oid": "66389fa410be554ea6058923"
+  },
+  "_idPieza": 5,
+  "_idProveedor": 1,
+  "precio": 11
+}]

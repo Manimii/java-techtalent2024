@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "6638b35510be554ea605893d"
+  },
+  "DNI": "12345678A",
+  "nomApels": "Juan Martínez"
+},
+{
+  "_id": {
+    "$oid": "6638b35510be554ea605893e"
+  },
+  "DNI": "23456789B",
+  "nomApels": "María García"
+},
+{
+  "_id": {
+    "$oid": "6638b35510be554ea605893f"
+  },
+  "DNI": "34567890C",
+  "nomApels": "Pedro López"
+},
+{
+  "_id": {
+    "$oid": "6638b35510be554ea6058940"
+  },
+  "DNI": "45678901D",
+  "nomApels": "Ana Ruiz"
+},
+{
+  "_id": {
+    "$oid": "6638b35510be554ea6058941"
+  },
+  "DNI": "56789012E",
+  "nomApels": "Carlos Sánchez"
+}]

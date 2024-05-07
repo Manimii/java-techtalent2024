@@ -1,0 +1,70 @@
+[{
+  "_id": 1,
+  "DNI": "12345678A",
+  "nomApels": "Juan Martínez",
+  "DNIJefe": null,
+  "Despacho": 1
+},
+{
+  "_id": 2,
+  "DNI": "23456789B",
+  "nomApels": "María García",
+  "DNIJefe": "12345678A",
+  "Despacho": 2
+},
+{
+  "_id": 3,
+  "DNI": "34567890C",
+  "nomApels": "Pedro López",
+  "DNIJefe": "12345678A",
+  "Despacho": 3
+},
+{
+  "_id": 4,
+  "DNI": "45678901D",
+  "nomApels": "Ana Ruiz",
+  "DNIJefe": "23456789B",
+  "Despacho": 4
+},
+{
+  "_id": 5,
+  "DNI": "56789012E",
+  "nomApels": "Carlos Sánchez",
+  "DNIJefe": "23456789B",
+  "Despacho": 5
+},
+{
+  "_id": 6,
+  "DNI": "67890123F",
+  "nomApels": "Laura Martín",
+  "DNIJefe": "34567890C",
+  "Despacho": 1
+},
+{
+  "_id": 7,
+  "DNI": "78901234G",
+  "nomApels": "Elena Pérez",
+  "DNIJefe": "34567890C",
+  "Despacho": 2
+},
+{
+  "_id": 8,
+  "DNI": "89012345H",
+  "nomApels": "Pablo Gómez",
+  "DNIJefe": "45678901D",
+  "Despacho": 3
+},
+{
+  "_id": 9,
+  "DNI": "90123456I",
+  "nomApels": "Sara Hernández",
+  "DNIJefe": "45678901D",
+  "Despacho": 4
+},
+{
+  "_id": 10,
+  "DNI": "01234567J",
+  "nomApels": "Diego Castro",
+  "DNIJefe": "56789012E",
+  "Despacho": 5
+}]

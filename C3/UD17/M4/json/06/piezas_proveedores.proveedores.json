@@ -1,0 +1,20 @@
+[{
+  "_id": 1,
+  "nombre": "Proveedor A"
+},
+{
+  "_id": 2,
+  "nombre": "Proveedor B"
+},
+{
+  "_id": 3,
+  "nombre": "Proveedor C"
+},
+{
+  "_id": 4,
+  "nombre": "Proveedor D"
+},
+{
+  "_id": 5,
+  "nombre": "Proveedor E"
+}]

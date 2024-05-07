@@ -1,0 +1,60 @@
+[{
+  "_id": 1,
+  "numSerie": 1001,
+  "nombre": "Equipo 1",
+  "Facultad": 2
+},
+{
+  "_id": 2,
+  "numSerie": 1002,
+  "nombre": "Equipo 2",
+  "Facultad": 1
+},
+{
+  "_id": 3,
+  "numSerie": 1003,
+  "nombre": "Equipo 3",
+  "Facultad": 3
+},
+{
+  "_id": 4,
+  "numSerie": 1004,
+  "nombre": "Equipo 4",
+  "Facultad": 4
+},
+{
+  "_id": 5,
+  "numSerie": 1005,
+  "nombre": "Equipo 5",
+  "Facultad": 5
+},
+{
+  "_id": 6,
+  "numSerie": 1006,
+  "nombre": "Equipo 6",
+  "Facultad": 2
+},
+{
+  "_id": 7,
+  "numSerie": 1007,
+  "nombre": "Equipo 7",
+  "Facultad": 3
+},
+{
+  "_id": 8,
+  "numSerie": 1008,
+  "nombre": "Equipo 8",
+  "Facultad": 4
+},
+{
+  "_id": 9,
+  "numSerie": 1009,
+  "nombre": "Equipo 9",
+  "Facultad": 1
+},
+{
+  "_id": 10,
+  "numSerie": 1010,
+  "nombre": "Equipo 10",
+  "Facultad": 5
+}]

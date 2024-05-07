@@ -1,0 +1,25 @@
+[{
+  "_id": 1,
+  "lugar": "Almacén A",
+  "capacidad": 1000
+},
+{
+  "_id": 2,
+  "lugar": "Almacén B",
+  "capacidad": 800
+},
+{
+  "_id": 3,
+  "lugar": "Almacén C",
+  "capacidad": 1200
+},
+{
+  "_id": 4,
+  "lugar": "Almacén D",
+  "capacidad": 1500
+},
+{
+  "_id": 5,
+  "lugar": "Almacén E",
+  "capacidad": 900
+}]

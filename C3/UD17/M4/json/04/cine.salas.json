@@ -1,0 +1,50 @@
+[{
+  "_id": 1,
+  "nombre": "Sala 1",
+  "pelicula": 1
+},
+{
+  "_id": 2,
+  "nombre": "Sala 2",
+  "pelicula": 2
+},
+{
+  "_id": 3,
+  "nombre": "Sala 3",
+  "pelicula": 3
+},
+{
+  "_id": 4,
+  "nombre": "Sala 4",
+  "pelicula": 4
+},
+{
+  "_id": 5,
+  "nombre": "Sala 5",
+  "pelicula": 5
+},
+{
+  "_id": 6,
+  "nombre": "Sala 6",
+  "pelicula": 1
+},
+{
+  "_id": 7,
+  "nombre": "Sala 7",
+  "pelicula": 2
+},
+{
+  "_id": 8,
+  "nombre": "Sala 8",
+  "pelicula": 3
+},
+{
+  "_id": 9,
+  "nombre": "Sala 9",
+  "pelicula": 4
+},
+{
+  "_id": 10,
+  "nombre": "Sala 10",
+  "pelicula": 5
+}]

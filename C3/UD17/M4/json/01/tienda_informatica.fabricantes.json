@@ -1,0 +1,40 @@
+[{
+  "_id": 1,
+  "nombre": "Sony"
+},
+{
+  "_id": 2,
+  "nombre": "Samsung"
+},
+{
+  "_id": 3,
+  "nombre": "Apple"
+},
+{
+  "_id": 4,
+  "nombre": "Microsoft"
+},
+{
+  "_id": 5,
+  "nombre": "Nike"
+},
+{
+  "_id": 6,
+  "nombre": "Adidas"
+},
+{
+  "_id": 7,
+  "nombre": "LG"
+},
+{
+  "_id": 8,
+  "nombre": "Panasonic"
+},
+{
+  "_id": 9,
+  "nombre": "Canon"
+},
+{
+  "_id": 10,
+  "nombre": "HP"
+}]

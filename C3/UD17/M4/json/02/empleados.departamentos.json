@@ -1,0 +1,25 @@
+[{
+  "_id": 1,
+  "nombre": "Ventas",
+  "presupuesto": 100000
+},
+{
+  "_id": 2,
+  "nombre": "Marketing",
+  "presupuesto": 80000
+},
+{
+  "_id": 3,
+  "nombre": "Desarrollo",
+  "presupuesto": 150000
+},
+{
+  "_id": 4,
+  "nombre": "Recursos Humanos",
+  "presupuesto": 75000
+},
+{
+  "_id": 5,
+  "nombre": "Finanzas",
+  "presupuesto": 120000
+}]
