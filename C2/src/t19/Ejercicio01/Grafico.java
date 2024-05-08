@@ -35,8 +35,8 @@ public class Grafico extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String s = tf1.getText();
-				JOptionPane.showMessageDialog(null, "¡Hola " + s + "!");
+				String nombre = tf1.getText();
+				JOptionPane.showMessageDialog(null, "¡Hola " + nombre + "!");
 				
 			}
 			
