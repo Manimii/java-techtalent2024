@@ -68,9 +68,14 @@ WHERE c.almacen = a.codigo
 ORDER BY c.num_referencia
 
 -- 3.8 Obtener el número de cajas que hay en cada almacén.
-SELECT almacen, COUNT(num_referencia) AS numero_de_cajas
+SELECT almacen, COUNT(num_referencia) AS "Numero de cajas"
 FROM cajas
 GROUP BY almacen
+
+SELECT a.codigo, COUNT(c.num_referencia) AS "Numero de cajas"
+FROM almacenes a LEFT JOIN cajas c
+ON a.codigo = c.almacen
+GROUP BY a.codigo
 
 -- 3.9 Obtener los códigos de los almacenes que están saturados (los almacenes donde el número de cajas es superior a la capacidad.
 SELECT a.codigo
@@ -84,14 +89,21 @@ WHERE capacidad <
 )
 
 -- 3.10 Obtener los números de referencia de las cajas que están en Bilbao (Chicago en mi caso)
-SELECT c.num_referencia
+SELECT c.num_referencia AS "Cajas del almacen de Chicago"
 FROM cajas c
 WHERE 'Chicago' = 
 (
 	SELECT a.lugar
 	FROM almacenes a
 	WHERE c.almacen = a.codigo
-)
+);
+
+SELECT c.num_referencia AS "Cajas del almacen de Chicago"
+FROM cajas c RIGHT JOIN almacenes a
+ON c.almacen = a.codigo 
+WHERE a.lugar = 'Chicago';
+
+
 
 -- 3.11 Insertar un nuevo almacén en Barcelona con capacidad para 3 cajas.
 INSERT INTO almacenes (codigo, lugar, capacidad) 
@@ -120,12 +132,17 @@ FROM cajas
 WHERE valor < 100
 
 -- 3.16 Vaciar el contenido de los almacenes que están saturados (Yo haré un select para no borrarlos).
-SELECT a.*
-FROM almacenes a
-WHERE capacidad < 
+SELECT *
+FROM cajas c
+WHERE c.almacen = 
 (
-	SELECT COUNT(c.num_referencia)
-	FROM cajas c
-	WHERE c.almacen = a.codigo
-	GROUP BY c.almacen
+	SELECT a.codigo
+	FROM almacenes a
+	WHERE a.capacidad < 
+	(
+		SELECT COUNT(c.num_referencia)
+		FROM cajas ca
+		WHERE ca.almacen = a.codigo
+		GROUP BY ca.almacen
+	)
 )

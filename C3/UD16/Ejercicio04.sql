@@ -49,8 +49,8 @@ WHERE pelicula IS NULL
 
 -- 4.5 Mostrar la información de todas las salas y, si se proyecta alguna película en la sala, mostrar también la información de la película.
 SELECT s.*, p.*
-FROM salas s
-LEFT OUTER JOIN peliculas p ON p.codigo = s.pelicula
+FROM salas s LEFT OUTER JOIN peliculas p 
+ON p.codigo = s.pelicula
 
 -- 4.6 Mostrar la información de todas las películas y, si se proyecta en alguna sala, mostrar también la información de la sala.
 SELECT p.*, s.*
@@ -60,7 +60,7 @@ ON p.codigo = s.pelicula
 -- 4.7 Mostrar los nombres de las películas que no se proyectan en ninguna sala.
 SELECT p.nombre, p.codigo
 FROM peliculas p 
-WHERE NOT EXISTS 
+WHERE p.codigo NOT IN
 (
 	SELECT DISTINCT s.pelicula
 	FROM salas s
