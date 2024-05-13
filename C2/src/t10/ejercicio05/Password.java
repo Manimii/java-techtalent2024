@@ -37,15 +37,15 @@ public class Password {
 			}
 		}
 
-		return (countMayus > 2 && countMinus > 1 && countNums > 5);
+		return (countMayus >= 2 && countMinus >= 1 && countNums >= 5);
 	}
 
 	// 48-122
 	private static int numRandom() {
-		int n = 58;
+		int minValue = 48, maxValue = 122, n = 58;
 		// Si sale algo distinto a una letra o un numero vuelve a generar un caracter
 		while ((n >= 58 && n <= 64) || (n >= 91 && n <= 96)) {
-			n = (int) (48 + (Math.random() * (122 + 1 - 48)));
+			n = (int) (minValue + (Math.random() * (maxValue + 1 - minValue)));
 		}
 		return n;
 	}
