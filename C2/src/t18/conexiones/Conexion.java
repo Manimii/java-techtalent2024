@@ -22,7 +22,7 @@ public class Conexion {
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.print("No se ha podido conectar con mi base de datos");
 			System.out.println(e);
-		}
+		} 
 	}
 
 	public void closeConnection() {
