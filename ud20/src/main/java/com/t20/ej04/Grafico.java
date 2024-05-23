@@ -8,10 +8,8 @@ import javax.swing.*;
 public class Grafico extends JFrame{
 
     private JPanel jp;
-    private String texto;
 
     public Grafico() {
-        texto = "";
         setTitle("Ejercicio 4");
         setSize(400, 400);
         setLocationRelativeTo(null);
