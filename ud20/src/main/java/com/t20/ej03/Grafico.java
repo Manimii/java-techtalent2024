@@ -21,7 +21,7 @@ public class Grafico extends JFrame {
         texto1 = "Botón 1: ";
         texto2 = "Botón 2: ";
 
-        setTitle("Ejercicio 2");
+        setTitle("Ejercicio 3");
         setSize(300, 170);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
