@@ -28,8 +28,10 @@ public class Grafico extends JFrame{
 
         // TextArea
         JTextArea ta = new JTextArea();
-        ta.setBounds(70, 10, 300, 300);
-        jp.add(ta);
+        JScrollPane scroll = new JScrollPane(ta);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(70, 10, 300, 300);
+        jp.add(scroll);
 
 
         WindowListener wl = new WindowListener() {
