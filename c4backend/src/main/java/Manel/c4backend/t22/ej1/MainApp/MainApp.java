@@ -10,8 +10,8 @@ public class MainApp {
 		Conexiones c = new Conexiones();
 		Methods.crearBaseDatos(c);
 		
-		Startmenu sm = new Startmenu();
-		c.closeConnection();
+		Startmenu sm = new Startmenu(c);
+//		c.closeConnection();
 	}
 
 }

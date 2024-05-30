@@ -1,12 +1,16 @@
 package Manel.c4backend.t22.ej1.controller;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+
+import Manel.c4backend.t22.ej1.model.*;
 
 public class Conexiones {
 
@@ -29,7 +33,7 @@ public class Conexiones {
 	public void closeConnection() {
 		try {
 			this.conexion.close();
-			JOptionPane.showInternalMessageDialog(null, "Se ha finalizado la conexión con el servidor");
+			System.out.println("Se ha finalizado la conexión con el servidor");
 		} catch (SQLException e) {
 			System.out.println("Error cerrando la conexión con el server.");
 		}
@@ -79,7 +83,7 @@ public class Conexiones {
 			System.out.println("Error eliminando el registro " + id + " de la tabla " + tabla);
 		}
 	}
-	
+
 	public void updateData(String db, String tabla, String set, String where) {
 		try {
 			useDB(db);
@@ -91,8 +95,13 @@ public class Conexiones {
 		}
 	}
 
-	public void selectData(String db, String select, String from, String where, String groupby, String having,
+	public ArrayList<Cliente> selectData(String db, String select, String from, String where, String groupby, String having,
 			String orderby) {
+		int id = 0, dni = 0;
+		String nombre = "", apellido = "", direccion = "";
+		Date fecha = null;
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		
 		try {
 			useDB(db);
 			query = "SELECT " + select + " FROM " + from;
@@ -116,11 +125,25 @@ public class Conexiones {
 			query += ";";
 			
 			System.out.println(query);
-			st.executeUpdate(query);
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				id = rs.getInt("id");
+				nombre = rs.getString("nombre");
+				apellido = rs.getString("apellido");
+				direccion = rs.getString("direccion");
+				dni = rs.getInt("dni");
+				fecha = rs.getDate("fecha");
+				
+				Cliente cl = new Cliente(id, nombre, apellido, direccion, dni, fecha);
+				System.out.println(cl.toString());
+				clientes.add(cl);
+			}
 			
 		} catch (SQLException e) {
 			System.out.println("Error en la consulta");
 		}
+		
+		return clientes;
 	}
 
 	private void useDB(String db) {
