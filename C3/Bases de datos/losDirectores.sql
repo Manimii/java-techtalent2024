@@ -61,8 +61,8 @@ INSERT INTO `directores` (`dni`, `nom_apels`, `dni_jefe`, `despacho`) VALUES
 	('5478699Y', 'carlos', NULL, 4),
 	('7305597S', 'montse', NULL, 5),
 	('7357072Y', 'rosa', '5478699Y', 4),
-	('7845859G', 'cristina', '7869261K', 3),
 	('7869261K', 'juan', NULL, 3),
+	('7845859G', 'cristina', '7869261K', 3),
 	('9861511N', 'ana', '0672523P', 9);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
