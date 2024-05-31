@@ -11,7 +11,6 @@ public class MainApp {
 		Methods.crearBaseDatos(c);
 		
 		Startmenu sm = new Startmenu(c);
-//		c.closeConnection();
 	}
 
 }

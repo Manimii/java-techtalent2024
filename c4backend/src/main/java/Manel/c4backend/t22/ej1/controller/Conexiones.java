@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -96,56 +97,70 @@ public class Conexiones {
 		}
 	}
 
-	public ArrayList<Cliente> selectData(String db, String select, String from, String where, String groupby, String having,
+	public ArrayList<Cliente> selectData(String db, List<String> select, String from, String where, String groupby,
+			String having,
 			String orderby) {
 		int id = 0, dni = 0;
+		int selectSize = select.size();
 		String nombre = "", apellido = "", direccion = "";
 		Date fecha = null;
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		
+
 		try {
 			useDB(db);
-			query = "SELECT " + select + " FROM " + from;
-			
+			query = "SELECT " + String.join(", ", select) + " FROM " + from;
+
 			if (!where.equals("")) {
 				query += " WHERE " + where;
 			}
-			
+
 			if (!groupby.equals("")) {
 				query += " GROUP BY " + groupby;
 			}
-			
+
 			if (!having.equals("")) {
 				query += " HAVING " + having;
 			}
-			
+
 			if (!orderby.equals("")) {
 				query += " ORDER BY " + orderby;
 			}
-			
+
 			query += ";";
-			
+
 			System.out.println(query);
 			ResultSet rs = st.executeQuery(query);
 			while (rs.next()) {
-				id = rs.getInt("id");
-				nombre = rs.getString("nombre");
-				apellido = rs.getString("apellido");
-				direccion = rs.getString("direccion");
-				dni = rs.getInt("dni");
-				fecha = rs.getDate("fecha");
-				
+
+				if (select.contains("id") || (selectSize == 1 && select.get(0).equals("*"))) {
+					id = rs.getInt("id");
+				}
+				if (select.contains("nombre") || (selectSize == 1 && select.get(0).equals("*"))) {
+					nombre = rs.getString("nombre");
+				}
+				if (select.contains("apellido") || (selectSize == 1 && select.get(0).equals("*"))) {
+					apellido = rs.getString("apellido");
+				}
+				if (select.contains("direccion") || (selectSize == 1 && select.get(0).equals("*"))) {
+					direccion = rs.getString("direccion");
+				}
+				if (select.contains("dni") || (selectSize == 1 && select.get(0).equals("*"))) {
+					dni = rs.getInt("dni");
+				}
+				if (select.contains("fecha") || (selectSize == 1 && select.get(0).equals("*"))) {
+					fecha = rs.getDate("fecha");
+				}
+
 				Cliente cl = new Cliente(id, nombre, apellido, direccion, dni, fecha);
 				clientes.add(cl);
 			}
-			
+
 		} catch (SQLException e) {
 			System.out.println("Error en la consulta");
 		}
-		
+
 		return clientes;
 	}
-	
 
 	private void useDB(String db) {
 		try {

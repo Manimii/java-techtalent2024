@@ -1,6 +1,8 @@
 package Manel.c4backend.t22.ej1.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -54,9 +56,12 @@ public class Listeners {
 		String set = atributo + " = '" + nuevoValor + "'";
 		String where = "id = " + id;
 
+		List<String> select = new ArrayList<>();
+		select.add("*");
+
 		c.updateData(db, tabla, set, where);
 
-		clientes = c.selectData("clientes", "*", "cliente", "", "", "", "id");
+		clientes = c.selectData("clientes", select, "cliente", "", "", "", "id");
 		Methods.generateClientRows(clientes, model);
 	}
 
@@ -65,9 +70,12 @@ public class Listeners {
 		String id = selectId.getSelectedItem().toString();
 		String db = "clientes", tabla = "cliente";
 
+		List<String> select = new ArrayList<>();
+		select.add("*");
+
 		c.deleteData(db, tabla, id);
 
-		clientes = c.selectData("clientes", "*", "cliente", "", "", "", "id");
+		clientes = c.selectData("clientes", select, "cliente", "", "", "", "id");
 		Methods.generateClientRows(clientes, model);
 	}
 
@@ -75,7 +83,8 @@ public class Listeners {
 			JTextField tfHaving, JTextField tfOrderBy, Conexiones c, ArrayList<Cliente> clientes,
 			DefaultTableModel model) {
 		String db = "clientes";
-		String select = tfSelect.getText();
+		String selectString = tfSelect.getText();
+		List<String> select = Arrays.asList(selectString.split(", "));
 		String from = tfFrom.getText();
 		String where = tfWhere.getText();
 		String groupBy = tfGroupBy.getText();

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -38,7 +39,10 @@ public class UpdateView extends JFrame {
 		tClientes.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		tClientes.setFillsViewportHeight(true);
 
-		clientes = c.selectData("clientes", "*", "cliente", "", "", "", "");
+		List<String> select = new ArrayList<>();
+		select.add("*");
+
+		clientes = c.selectData("clientes", select, "cliente", "", "", "", "");
 
 		Methods.generateClientRows(clientes, model);
 
