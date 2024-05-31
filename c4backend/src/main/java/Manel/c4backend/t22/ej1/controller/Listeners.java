@@ -1,7 +1,12 @@
 package Manel.c4backend.t22.ej1.controller;
 
-import javax.swing.*;
+import java.util.ArrayList;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import Manel.c4backend.t22.ej1.model.Cliente;
+import Manel.c4backend.t22.ej1.model.Methods;
 import Manel.c4backend.t22.ej1.view.*;
 
 public class Listeners {
@@ -14,7 +19,7 @@ public class Listeners {
 		if (s.equals("Insertar datos")) {
 			InsertView iv = new InsertView(c);
 
-		} else if (s.equals("Mostrar datos")) {
+		} else if (s.equals("Hacer consultas")) {
 			SelectView sv = new SelectView(c);
 
 		} else if (s.equals("Actualizar datos")) {
@@ -35,7 +40,51 @@ public class Listeners {
 		String fecha = tfFecha.getText();
 		String s = "(`nombre`, `apellido`, `direccion`, `dni`, `fecha`) VALUES";
 		s += "('" + nombre + "' , '" + apellido + "' , '" + direccion + "' , '" + dni + "' , '" + fecha + "');";
-		
+
 		c.insertData("clientes", "cliente", s);
 	}
+
+	public static void updateRegistro(JComboBox<Integer> selectId, JComboBox<String> selectAtributo,
+			JTextField tfNuevoValor, Conexiones c, ArrayList<Cliente> clientes, DefaultTableModel model) {
+		int id = (int) selectId.getSelectedItem();
+		String atributo = selectAtributo.getSelectedItem().toString();
+		String nuevoValor = tfNuevoValor.getText();
+
+		String db = "clientes", tabla = "cliente";
+		String set = atributo + " = '" + nuevoValor + "'";
+		String where = "id = " + id;
+
+		c.updateData(db, tabla, set, where);
+
+		clientes = c.selectData("clientes", "*", "cliente", "", "", "", "id");
+		Methods.generateClientRows(clientes, model);
+	}
+
+	public static void deleteRegistro(JComboBox<Integer> selectId, Conexiones c, ArrayList<Cliente> clientes,
+			DefaultTableModel model) {
+		String id = selectId.getSelectedItem().toString();
+		String db = "clientes", tabla = "cliente";
+
+		c.deleteData(db, tabla, id);
+
+		clientes = c.selectData("clientes", "*", "cliente", "", "", "", "id");
+		Methods.generateClientRows(clientes, model);
+	}
+
+	public static void selectQuery(JTextField tfSelect, JTextField tfFrom, JTextField tfWhere, JTextField tfGroupBy,
+			JTextField tfHaving, JTextField tfOrderBy, Conexiones c, ArrayList<Cliente> clientes,
+			DefaultTableModel model) {
+		String db = "clientes";
+		String select = tfSelect.getText();
+		String from = tfFrom.getText();
+		String where = tfWhere.getText();
+		String groupBy = tfGroupBy.getText();
+		String having = tfHaving.getText();
+		String orderBy = tfOrderBy.getText();
+
+		clientes = c.selectData(db, select, from, where, groupBy, having, orderBy);
+
+		Methods.generateClientRows(clientes, model);
+	}
+
 }

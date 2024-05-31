@@ -35,9 +35,9 @@ public class Startmenu {
 		// Combo Box
 		final JComboBox<String> selectMenu = new JComboBox<String>();
 		selectMenu.addItem("Insertar datos");
-		selectMenu.addItem("Mostrar datos");
 		selectMenu.addItem("Actualizar datos");
 		selectMenu.addItem("Borrar datos");
+		selectMenu.addItem("Hacer consultas");
 		selectMenu.setBounds(140, 40, 120, 20);
 		jp.add(selectMenu);
 

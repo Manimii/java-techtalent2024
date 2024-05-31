@@ -76,7 +76,8 @@ public class Conexiones {
 	public void deleteData(String db, String tabla, String id) {
 		try {
 			useDB(db);
-			query = "DELETE FROM " + tabla + " WHERE ID = `" + id + "`";
+			query = "DELETE FROM " + tabla + " WHERE ID = '" + id + "'";
+			System.out.println(query);
 			st.executeUpdate(query);
 			JOptionPane.showMessageDialog(null, "Se ha borrado el registro " + id + " de la tabla " + tabla);
 		} catch (SQLException e) {
@@ -135,7 +136,6 @@ public class Conexiones {
 				fecha = rs.getDate("fecha");
 				
 				Cliente cl = new Cliente(id, nombre, apellido, direccion, dni, fecha);
-				System.out.println(cl.toString());
 				clientes.add(cl);
 			}
 			
@@ -145,6 +145,7 @@ public class Conexiones {
 		
 		return clientes;
 	}
+	
 
 	private void useDB(String db) {
 		try {
