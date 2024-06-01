@@ -1,6 +1,5 @@
 package Manel.c4backend.t22.ej1.view;
 
-import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -12,13 +11,12 @@ public class Startmenu {
 
 	private JPanel jp;
 
-	public Startmenu(final Conexiones c) {
+	public Startmenu(final Conexiones c, final String tabla) {
 		final JFrame frame = new JFrame();
 
-		frame.setTitle("Clientes");
-		frame.setSize(400, 150);
+		frame.setTitle(tabla);
+		frame.setSize(400, 250);
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 
 		// Panel
@@ -43,7 +41,7 @@ public class Startmenu {
 
 		// Button
 		JButton confirmar = new JButton("Confirmar");
-		confirmar.setBounds(150, 70, 100, 30);
+		confirmar.setBounds(150, 150, 100, 30);
 		jp.add(confirmar);
 
 		// Action Listener
@@ -51,7 +49,7 @@ public class Startmenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Listeners.selectMenu(selectMenu, frame, c);
+				Listeners.selectMenu(selectMenu, frame, c, tabla);
 			}
 
 		};
@@ -62,7 +60,8 @@ public class Startmenu {
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				c.closeConnection();
+				SelectTableView stv = new SelectTableView(c);
+			
 			}
 		});
 

@@ -342,18 +342,6 @@ CREATE TABLE IF NOT EXISTS `suministra` (
 CREATE DATABASE IF NOT EXISTS `ejercicio09` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `ejercicio09`;
 
--- Volcando estructura para tabla ejercicio09.asignado_a
-CREATE TABLE IF NOT EXISTS `asignado_a` (
-  `cientifico` varchar(8) NOT NULL,
-  `proyecto` char(4) NOT NULL,
-  PRIMARY KEY (`cientifico`,`proyecto`),
-  KEY `fk_proyecto_asignado` (`proyecto`),
-  CONSTRAINT `fk_cientifico_asignado` FOREIGN KEY (`cientifico`) REFERENCES `cientificos` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_proyecto_asignado` FOREIGN KEY (`proyecto`) REFERENCES `proyecto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Volcando datos para la tabla ejercicio09.asignado_a: ~0 rows (aproximadamente)
-
 -- Volcando estructura para tabla ejercicio09.cientificos
 CREATE TABLE IF NOT EXISTS `cientificos` (
   `dni` varchar(8) NOT NULL,
@@ -372,6 +360,18 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ejercicio09.proyecto: ~0 rows (aproximadamente)
+
+-- Volcando estructura para tabla ejercicio09.asignado_a
+CREATE TABLE IF NOT EXISTS `asignado_a` (
+  `cientifico` varchar(8) NOT NULL,
+  `proyecto` char(4) NOT NULL,
+  PRIMARY KEY (`cientifico`,`proyecto`),
+  KEY `fk_proyecto_asignado` (`proyecto`),
+  CONSTRAINT `fk_cientifico_asignado` FOREIGN KEY (`cientifico`) REFERENCES `cientificos` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_proyecto_asignado` FOREIGN KEY (`proyecto`) REFERENCES `proyecto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla ejercicio09.asignado_a: ~0 rows (aproximadamente)
 
 
 -- Volcando estructura de base de datos para ejercicio10

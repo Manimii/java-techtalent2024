@@ -1,21 +1,19 @@
 package Manel.c4backend.t22.ej1.view;
 
 import java.awt.event.*;
-import java.sql.Date;
 
 import javax.swing.*;
 
 import Manel.c4backend.t22.ej1.controller.*;
 
-public class InsertView extends JFrame {
+public class InsertClienteView extends JFrame {
 
 	private JPanel jp;
 
-	public InsertView(final Conexiones c) {
+	public InsertClienteView(final Conexiones c, final String tabla) {
 		setTitle("Insert");
 		setSize(400, 300);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
 		// Panel
@@ -88,7 +86,7 @@ public class InsertView extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Listeners.addRegistro(tfNombre, tfApellido, tfDireccion, tfDni, tfFecha, c);
+				Listeners.addClienteRegistro(tfNombre, tfApellido, tfDireccion, tfDni, tfFecha, c);
 
 			}
 
@@ -100,7 +98,7 @@ public class InsertView extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-		        c.closeConnection();
+		        Startmenu sm = new Startmenu(c, tabla);
 		    }
 		});
 

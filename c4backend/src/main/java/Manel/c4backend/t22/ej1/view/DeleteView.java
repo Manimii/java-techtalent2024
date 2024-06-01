@@ -12,24 +12,42 @@ import javax.swing.table.DefaultTableModel;
 import Manel.c4backend.t22.ej1.controller.*;
 import Manel.c4backend.t22.ej1.model.Cliente;
 import Manel.c4backend.t22.ej1.model.Methods;
+import Manel.c4backend.t22.ej1.model.Videos;
 
 public class DeleteView extends JFrame {
 
 	private JPanel jp;
-	private String[] columnas = { "id", "nombre", "apellido", "direccion", "dni", "fecha" };
+	private String[] columnas;
 	private ArrayList<Cliente> clientes;
+	private ArrayList<Videos> videos;
 
-	public DeleteView(final Conexiones c) {
+	public DeleteView(final Conexiones c, final String tabla) {
 		setTitle("Delete");
 		setSize(600, 400);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
 		// Panel
 		jp = new JPanel();
 		jp.setLayout(null);
 		setContentPane(jp);
+
+		if (tabla.equals("Cliente")) {
+			columnas = new String[6];
+			columnas[0] = "id";
+			columnas[1] = "nombre";
+			columnas[2] = "apellido";
+			columnas[3] = "direccion";
+			columnas[4] = "dni";
+			columnas[5] = "fecha";
+
+		} else if (tabla.equals("Videos")) {
+			columnas = new String[4];
+			columnas[0] = "id";
+			columnas[1] = "title";
+			columnas[2] = "director";
+			columnas[3] = "cli_id";
+		}
 
 		// Table
 		JTable tClientes = new JTable();
@@ -43,9 +61,15 @@ public class DeleteView extends JFrame {
 		List<String> select = new ArrayList<>();
 		select.add("*");
 
-		clientes = c.selectData("clientes", select, "cliente", "", "", "", "");
+		if (tabla.equals("Cliente")) {
+			clientes = c.selectClienteData("clientes", select, tabla, "", "", "", "");
+			Methods.generateClientRows(clientes, model);
 
-		Methods.generateClientRows(clientes, model);
+		} else if (tabla.equals("Videos")) {
+			videos = c.selectVideosData("clientes", select, tabla, "", "", "", "");
+			Methods.generateVideosRows(videos, model);
+
+		}
 
 		// Scroll
 		JScrollPane scroll = new JScrollPane(tClientes);
@@ -61,9 +85,16 @@ public class DeleteView extends JFrame {
 
 		// Combo Box
 		final JComboBox<Integer> selectId = new JComboBox<Integer>();
-		for (int i = 1; i <= clientes.size(); i++) {
-			selectId.addItem(i);
 
+		if (tabla.equals("Cliente")) {
+			for (int i = 1; i <= clientes.size(); i++) {
+				selectId.addItem(i);
+			}
+
+		} else if (tabla.equals("Videos")) {
+			for (int i = 1; i <= videos.size(); i++) {
+				selectId.addItem(i);
+			}
 		}
 		selectId.setBounds(260, 250, 50, 20);
 		jp.add(selectId);
@@ -78,7 +109,7 @@ public class DeleteView extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Listeners.deleteRegistro(selectId, c, clientes, model);
+				Listeners.deleteRegistro(selectId, c, clientes, videos, model, tabla);
 			}
 
 		};
@@ -89,7 +120,7 @@ public class DeleteView extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				c.closeConnection();
+				Startmenu sm = new Startmenu(c, tabla);
 			}
 		});
 	}

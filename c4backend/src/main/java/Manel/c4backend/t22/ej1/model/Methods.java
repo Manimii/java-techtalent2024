@@ -1,7 +1,9 @@
 package Manel.c4backend.t22.ej1.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.management.Query;
 import javax.swing.table.DefaultTableModel;
 
 import Manel.c4backend.t22.ej1.controller.Conexiones;
@@ -10,21 +12,25 @@ public class Methods {
 
 	public static void crearBaseDatos(Conexiones c) {
 		String db = "clientes";
-		String tabla = "cliente";
-		String atributos = Querys.defineClientTable();
-		// String values = Querys.insertDefaultClientValues();
+		String tabla1 = "cliente";
+		String atributos1 = Querys.defineClientTable();
+		String tabla2 = "videos";
+		String atributos2 = Querys.defineVideosTable();
 
 		c.createDB(db);
-		c.createTable(db, tabla, atributos);
-		// c.insertData(db, tabla, values);
+		c.createTable(db, tabla1, atributos1);
+		c.createTable(db, tabla2, atributos2);
+
+		// String valuesClient = Querys.insertDefaultClientValues();
+		// c.insertData(db, tabla, valuesClient);
+		// String valuesVideos = Querys.insertDefaultVideoValues();
+		// c.insertData(db, tabla2, valuesVideos);
+
 	}
 
 	public static void generateClientRows(ArrayList<Cliente> clientes, DefaultTableModel model) {
 
 		int nColumnas = model.getRowCount();
-		int countElements = 0;
-		boolean hasId = false, hasNombre = false, hasApellido = false, hasDireccion = false, hasDni = false,
-				hasFecha = false;
 
 		if (nColumnas > 0) {
 			for (int i = 0; i < nColumnas; i++) {
@@ -74,6 +80,51 @@ public class Methods {
 
 			} else {
 				o[5] = null;
+
+			}
+
+			model.addRow(o);
+		}
+	}
+
+	public static void generateVideosRows(ArrayList<Videos> videos, DefaultTableModel model) {
+
+		int nColumnas = model.getRowCount();
+
+		if (nColumnas > 0) {
+			for (int i = 0; i < nColumnas; i++) {
+				model.removeRow(0);
+			}
+		}
+
+		for (int i = 0; i < videos.size(); i++) {
+			Object[] o = new Object[6];
+			if (videos.get(i).getId() != 0) {
+				o[0] = videos.get(i).getId();
+
+			} else {
+				o[0] = null;
+
+			}
+			if (!videos.get(i).getTitle().equals("")) {
+				o[1] = videos.get(i).getTitle();
+
+			} else {
+				o[1] = null;
+
+			}
+			if (!videos.get(i).getDirector().equals("")) {
+				o[2] = videos.get(i).getDirector();
+
+			} else {
+				o[2] = null;
+
+			}
+			if (!videos.get(i).getClie_id().equals("")) {
+				o[3] = videos.get(i).getClie_id();
+
+			} else {
+				o[3] = null;
 
 			}
 

@@ -31,6 +31,18 @@ public class Conexiones {
 		}
 	}
 
+	public Conexiones(String user, String password) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			this.conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306", user, password);
+			this.query = "";
+			System.out.println("Server conectado ");
+		} catch (SQLException | ClassNotFoundException e) {
+			System.out.print("No se ha podido conectar con mi base de datos");
+			System.out.println(e);
+		}
+	}
+
 	public void closeConnection() {
 		try {
 			this.conexion.close();
@@ -67,6 +79,7 @@ public class Conexiones {
 		try {
 			useDB(db);
 			query = "INSERT INTO " + tabla + values;
+			System.out.println(query);
 			st.executeUpdate(query);
 			System.out.println("Se han insertado los datos de la tabla " + tabla + " de manera exitosa.");
 		} catch (SQLException e) {
@@ -97,7 +110,8 @@ public class Conexiones {
 		}
 	}
 
-	public ArrayList<Cliente> selectData(String db, List<String> select, String from, String where, String groupby,
+	public ArrayList<Cliente> selectClienteData(String db, List<String> select, String from, String where,
+			String groupby,
 			String having,
 			String orderby) {
 		int id = 0, dni = 0;
@@ -160,6 +174,65 @@ public class Conexiones {
 		}
 
 		return clientes;
+	}
+
+	public ArrayList<Videos> selectVideosData(String db, List<String> select, String from, String where, String groupby,
+			String having,
+			String orderby) {
+		int id = 0, cli_id = 0;
+		int selectSize = select.size();
+		String title = "", director = "";
+		ArrayList<Videos> videos = new ArrayList<>();
+
+		try {
+			useDB(db);
+			query = "SELECT " + String.join(", ", select) + " FROM " + from;
+
+			if (!where.equals("")) {
+				query += " WHERE " + where;
+			}
+
+			if (!groupby.equals("")) {
+				query += " GROUP BY " + groupby;
+			}
+
+			if (!having.equals("")) {
+				query += " HAVING " + having;
+			}
+
+			if (!orderby.equals("")) {
+				query += " ORDER BY " + orderby;
+			}
+
+			query += ";";
+
+			System.out.println(query);
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+
+				if (select.contains("id") || (selectSize == 1 && select.get(0).equals("*"))) {
+					id = rs.getInt("id");
+				}
+				if (select.contains("title") || (selectSize == 1 && select.get(0).equals("*"))) {
+					title = rs.getString("title");
+				}
+				if (select.contains("director") || (selectSize == 1 && select.get(0).equals("*"))) {
+					director = rs.getString("director");
+				}
+				if (select.contains("cli_id") || (selectSize == 1 && select.get(0).equals("*"))) {
+					cli_id = rs.getInt("cli_id");
+				}
+
+
+				Videos v = new Videos(id, title, director, cli_id);
+				videos.add(v);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Error en la consulta");
+		}
+
+		return videos;
 	}
 
 	private void useDB(String db) {

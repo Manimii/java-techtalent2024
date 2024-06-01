@@ -12,24 +12,42 @@ import javax.swing.table.DefaultTableModel;
 import Manel.c4backend.t22.ej1.controller.*;
 import Manel.c4backend.t22.ej1.model.Cliente;
 import Manel.c4backend.t22.ej1.model.Methods;
+import Manel.c4backend.t22.ej1.model.Videos;
 
 public class SelectView extends JFrame {
 
 	private JPanel jp;
-	private String[] columnas = { "id", "nombre", "apellido", "direccion", "dni", "fecha" };
+	private String[] columnas;
 	private ArrayList<Cliente> clientes;
+	private ArrayList<Videos> videos;
 
-	public SelectView(final Conexiones c) {
+	public SelectView(final Conexiones c, final String tabla) {
 		setTitle("Select");
 		setSize(600, 500);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
 		// Panel
 		jp = new JPanel();
 		jp.setLayout(null);
 		setContentPane(jp);
+
+		if (tabla.equals("Cliente")) {
+			columnas = new String[6];
+			columnas[0] = "id";
+			columnas[1] = "nombre";
+			columnas[2] = "apellido";
+			columnas[3] = "direccion";
+			columnas[4] = "dni";
+			columnas[5] = "fecha";
+
+		} else if (tabla.equals("Videos")) {
+			columnas = new String[4];
+			columnas[0] = "id";
+			columnas[1] = "title";
+			columnas[2] = "director";
+			columnas[3] = "cli_id";
+		}
 
 		// Table
 		JTable tClientes = new JTable();
@@ -43,9 +61,15 @@ public class SelectView extends JFrame {
 		List<String> select = new ArrayList<>();
 		select.add("*");
 
-		clientes = c.selectData("clientes", select, "cliente", "", "", "", "");
+		if (tabla.equals("Cliente")) {
+			clientes = c.selectClienteData("clientes", select, tabla, "", "", "", "");
+			Methods.generateClientRows(clientes, model);
 
-		Methods.generateClientRows(clientes, model);
+		} else if (tabla.equals("Videos")) {
+			videos = c.selectVideosData("clientes", select, tabla, "", "", "", "");
+			Methods.generateVideosRows(videos, model);
+
+		}
 
 		// Scroll
 		JScrollPane scroll = new JScrollPane(tClientes);
@@ -70,9 +94,9 @@ public class SelectView extends JFrame {
 		jp.add(lFrom);
 
 		// Text Field
-		final JTextField tfFrom = new JTextField("cliente");
-		tfFrom.setBounds(80, 260, 490, 20);
+		final JTextField tfFrom = new JTextField(tabla);
 		tfFrom.setEnabled(false);
+		tfFrom.setBounds(80, 260, 490, 20);
 		jp.add(tfFrom);
 
 		// Label
@@ -125,7 +149,7 @@ public class SelectView extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Listeners.selectQuery(tfSelect, tfFrom, tfWhere, tfGroupBy, tfHaving, tfOrderBy, c, clientes, model);
+				Listeners.selectQuery(tfSelect, tfFrom, tfWhere, tfGroupBy, tfHaving, tfOrderBy, c, clientes, videos, model, columnas);
 			}
 
 		};
@@ -136,7 +160,7 @@ public class SelectView extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				c.closeConnection();
+				Startmenu sm = new Startmenu(c, tabla);
 			}
 		});
 	}
