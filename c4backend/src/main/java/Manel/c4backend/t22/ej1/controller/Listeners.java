@@ -236,33 +236,109 @@ public class Listeners {
 
 	}
 
-	public static void deleteRegistro(JComboBox<Integer> selectId, Conexiones c, ArrayList<Cliente> clientes,
-			ArrayList<Videos> videos,
-			DefaultTableModel model, String tabla) {
-		String id = selectId.getSelectedItem().toString();
-		String db = "clientes";
+	public static void deleteRegistro(JComboBox<Integer> selectNumberId, JComboBox<String> selectStringId,
+			JComboBox<String> selectStringId2, Conexiones c, ArrayList<Cliente> clientes,
+			ArrayList<Videos> videos, ArrayList<Cientificos> cientificos, ArrayList<Proyecto> proyectos,
+			ArrayList<Asignado> asignados,
+			DefaultTableModel model, String tabla, String db) {
+		int numberId = 0;
+		String stringId = "";
+		String stringId2 = "";
+
+		if (selectNumberId != null) {
+			numberId = (int) selectNumberId.getSelectedItem();
+		}
+		if (selectStringId != null) {
+			stringId = selectStringId.getSelectedItem().toString();
+		}
+		if (selectStringId2 != null) {
+			stringId2 = selectStringId2.getSelectedItem().toString();
+		}
 
 		List<String> select = new ArrayList<>();
 		select.add("*");
 
-		c.deleteData(db, tabla, id);
+		String where = "";
+		if (db.equals("clientes")) {
+			where = "id = " + numberId;
 
-		if (tabla.equals("Cliente")) {
-			clientes = c.selectClienteData(db, select, tabla, "", "", "", "id");
-			Methods.generateClientRows(clientes, model);
+		} else if (db.equals("cientificos")) {
+			switch (tabla) {
+				case "Cientificos":
+					where = "dni = '" + stringId + "'";
+					break;
 
-		} else if (tabla.equals("Videos")) {
-			videos = c.selectVideosData(db, select, tabla, "", "", "", "id");
-			Methods.generateVideosRows(videos, model);
+				case "Proyecto":
+					where = "id = '" + stringId + "'";
+					break;
 
+				case "asignado_a":
+					where = "cientifico = '" + stringId + "' AND proyecto = '" + stringId2 + "'";
+					break;
+
+				default:
+					break;
+			}
+		}
+
+		c.deleteData(db, tabla, where);
+
+		switch (db) {
+
+			case "clientes":
+
+				switch (tabla) {
+
+					case "Cliente":
+						clientes = c.selectClienteData("clientes", select, tabla, "", "", "", "");
+						Methods.generateClientRows(clientes, model);
+						break;
+
+					case "Videos":
+						videos = c.selectVideosData("clientes", select, tabla, "", "", "", "");
+						Methods.generateVideosRows(videos, model);
+						break;
+
+					default:
+						break;
+				}
+
+				break;
+
+			case "cientificos":
+
+				switch (tabla) {
+
+					case "Cientificos":
+						cientificos = c.selectCientificosData(db, select, tabla, "", "", "", "");
+						Methods.generateCientificosRows(cientificos, model);
+						break;
+
+					case "Proyecto":
+						proyectos = c.selectProyectoData(db, select, tabla, "", "", "", "");
+						Methods.generateProyectoRows(proyectos, model);
+						break;
+
+					case "asignado_a":
+						asignados = c.selectAsignadoData(db, select, tabla, "", "", "", "");
+						Methods.generateAsignadoaRows(asignados, model);
+						break;
+
+					default:
+						break;
+				}
+
+				break;
+			default:
+				break;
 		}
 	}
 
 	public static void selectQuery(JTextField tfSelect, JTextField tfFrom, JTextField tfWhere, JTextField tfGroupBy,
 			JTextField tfHaving, JTextField tfOrderBy, Conexiones c, ArrayList<Cliente> clientes,
-			ArrayList<Videos> videos,
-			DefaultTableModel model, String[] columnas) {
-		String db = "clientes";
+			ArrayList<Videos> videos, ArrayList<Cientificos> cientificos, ArrayList<Proyecto> proyectos,
+			ArrayList<Asignado> asignados,
+			DefaultTableModel model, String[] columnas, String db) {
 		String selectString = tfSelect.getText();
 		List<String> select = Arrays.asList(selectString.split(", "));
 		String from = tfFrom.getText();
@@ -271,13 +347,54 @@ public class Listeners {
 		String having = tfHaving.getText();
 		String orderBy = tfOrderBy.getText();
 
-		if (from.equals("Cliente")) {
-			clientes = c.selectClienteData(db, select, from, where, groupBy, having, orderBy);
-			Methods.generateClientRows(clientes, model);
+		switch (db) {
 
-		} else if (from.equals("Videos")) {
-			videos = c.selectVideosData(db, select, from, where, groupBy, having, orderBy);
-			Methods.generateVideosRows(videos, model);
+			case "clientes":
+
+				switch (from) {
+
+					case "Cliente":
+					clientes = c.selectClienteData(db, select, from, where, groupBy, having, orderBy);
+						Methods.generateClientRows(clientes, model);
+						break;
+
+					case "Videos":
+					videos = c.selectVideosData(db, select, from, where, groupBy, having, orderBy);
+						Methods.generateVideosRows(videos, model);
+						break;
+
+					default:
+						break;
+				}
+
+				break;
+
+			case "cientificos":
+
+				switch (from) {
+
+					case "Cientificos":
+						cientificos = c.selectCientificosData(db, select, from, where, groupBy, having, orderBy);
+						Methods.generateCientificosRows(cientificos, model);
+						break;
+
+					case "Proyecto":
+						proyectos = c.selectProyectoData(db, select, from, where, groupBy, having, orderBy);
+						Methods.generateProyectoRows(proyectos, model);
+						break;
+
+					case "Asignado a":
+						asignados = c.selectAsignadoData(db, select, "asignado_a", where, groupBy, having, orderBy);
+						Methods.generateAsignadoaRows(asignados, model);
+						break;
+
+					default:
+						break;
+				}
+
+				break;
+			default:
+				break;
 		}
 
 	}

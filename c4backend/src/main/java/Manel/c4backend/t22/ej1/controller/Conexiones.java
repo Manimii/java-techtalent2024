@@ -87,15 +87,15 @@ public class Conexiones {
 		}
 	}
 
-	public void deleteData(String db, String tabla, String id) {
+	public void deleteData(String db, String tabla, String where) {
 		try {
 			useDB(db);
-			query = "DELETE FROM " + tabla + " WHERE ID = '" + id + "'";
+			query = "DELETE FROM " + tabla + " WHERE " + where;
 			System.out.println(query);
 			st.executeUpdate(query);
-			JOptionPane.showMessageDialog(null, "Se ha borrado el registro " + id + " de la tabla " + tabla);
+			JOptionPane.showMessageDialog(null, "Se ha borrado el registro de la tabla " + tabla);
 		} catch (SQLException e) {
-			System.out.println("Error eliminando el registro " + id + " de la tabla " + tabla);
+			System.out.println("Error eliminando el registro de la tabla " + tabla);
 		}
 	}
 
@@ -272,8 +272,8 @@ public class Conexiones {
 				if (select.contains("dni") || (selectSize == 1 && select.get(0).equals("*"))) {
 					dni = rs.getString("dni");
 				}
-				if (select.contains("nomApels") || (selectSize == 1 && select.get(0).equals("*"))) {
-					nomApels = rs.getString("nomApels");
+				if (select.contains("nom_apels") || (selectSize == 1 && select.get(0).equals("*"))) {
+					nomApels = rs.getString("nom_apels");
 				}
 
 				Cientificos ci = new Cientificos(dni, nomApels);
@@ -281,7 +281,7 @@ public class Conexiones {
 			}
 
 		} catch (SQLException e) {
-			System.out.println("Error en la consulta");
+			System.out.println("Error en la consulta " + e.getMessage());
 		}
 
 		return cientificos;
