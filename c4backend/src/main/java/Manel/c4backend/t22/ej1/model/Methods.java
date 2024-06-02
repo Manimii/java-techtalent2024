@@ -98,7 +98,7 @@ public class Methods {
 		}
 
 		for (int i = 0; i < videos.size(); i++) {
-			Object[] o = new Object[6];
+			Object[] o = new Object[4];
 			if (videos.get(i).getId() != 0) {
 				o[0] = videos.get(i).getId();
 
@@ -125,6 +125,106 @@ public class Methods {
 
 			} else {
 				o[3] = null;
+
+			}
+
+			model.addRow(o);
+		}
+	}
+
+	public static void generateCientificosRows(ArrayList<Cientificos> cientificos, DefaultTableModel model) {
+
+		int nColumnas = model.getRowCount();
+
+		if (nColumnas > 0) {
+			for (int i = 0; i < nColumnas; i++) {
+				model.removeRow(0);
+			}
+		}
+
+		for (int i = 0; i < cientificos.size(); i++) {
+			Object[] o = new Object[2];
+			if (!cientificos.get(i).getDni().equals("")) {
+				o[0] = cientificos.get(i).getDni();
+
+			} else {
+				o[0] = null;
+
+			}
+			if (!cientificos.get(i).getNomApels().equals("")) {
+				o[1] = cientificos.get(i).getNomApels();
+
+			} else {
+				o[1] = null;
+
+			}
+
+			model.addRow(o);
+		}
+	}
+
+	public static void generateProyectoRows(ArrayList<Proyecto> proyecto, DefaultTableModel model) {
+
+		int nColumnas = model.getRowCount();
+
+		if (nColumnas > 0) {
+			for (int i = 0; i < nColumnas; i++) {
+				model.removeRow(0);
+			}
+		}
+
+		for (int i = 0; i < proyecto.size(); i++) {
+			Object[] o = new Object[3];
+			if (!proyecto.get(i).getId().equals("")) {
+				o[0] = proyecto.get(i).getId();
+
+			} else {
+				o[0] = null;
+
+			}
+			if (!proyecto.get(i).getNombre().equals("")) {
+				o[1] = proyecto.get(i).getNombre();
+
+			} else {
+				o[1] = null;
+
+			}
+			if (proyecto.get(i).getHoras() != 0) {
+				o[2] = proyecto.get(i).getHoras();
+
+			} else {
+				o[2] = null;
+
+			}
+
+			model.addRow(o);
+		}
+	}
+
+	public static void generateAsignadoaRows(ArrayList<Asignado> asignados, DefaultTableModel model) {
+
+		int nColumnas = model.getRowCount();
+
+		if (nColumnas > 0) {
+			for (int i = 0; i < nColumnas; i++) {
+				model.removeRow(0);
+			}
+		}
+
+		for (int i = 0; i < asignados.size(); i++) {
+			Object[] o = new Object[2];
+			if (!asignados.get(i).getCientifico().equals("")) {
+				o[0] = asignados.get(i).getCientifico();
+
+			} else {
+				o[0] = null;
+
+			}
+			if (!asignados.get(i).getProyecto().equals("")) {
+				o[1] = asignados.get(i).getProyecto();
+
+			} else {
+				o[1] = null;
 
 			}
 

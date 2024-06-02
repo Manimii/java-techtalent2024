@@ -7,22 +7,20 @@ import javax.swing.*;
 import Manel.c4backend.t22.ej1.controller.Conexiones;
 import Manel.c4backend.t22.ej1.controller.Listeners;
 
-public class Startmenu {
+public class Startmenu extends JFrame{
 
 	private JPanel jp;
 
-	public Startmenu(final Conexiones c, final String tabla) {
-		final JFrame frame = new JFrame();
-
-		frame.setTitle(tabla);
-		frame.setSize(400, 250);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
+	public Startmenu(final Conexiones c, final String tabla, final String db) {
+		setTitle(db + " - " + tabla);
+		setSize(400, 250);
+		setLocationRelativeTo(null);
+		setVisible(true);
 
 		// Panel
 		jp = new JPanel();
 		jp.setLayout(null);
-		frame.setContentPane(jp);
+		setContentPane(jp);
 
 		// Label
 		JLabel titulo = new JLabel("Selecciona la función que quieres hacer en la tabla clientes",
@@ -49,7 +47,8 @@ public class Startmenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Listeners.selectMenu(selectMenu, frame, c, tabla);
+				dispose();
+				Listeners.selectMenu(selectMenu, c, tabla, db);
 			}
 
 		};
@@ -57,10 +56,10 @@ public class Startmenu {
 		confirmar.addActionListener(alConfirmar);
 
 		// Cerrar conexión al salir del aplicativo
-		frame.addWindowListener(new WindowAdapter() {
+		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				SelectTableView stv = new SelectTableView(c);
+				SelectTableView stv = new SelectTableView(c, db);
 			
 			}
 		});

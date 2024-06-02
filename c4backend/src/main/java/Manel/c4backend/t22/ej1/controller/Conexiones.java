@@ -103,6 +103,7 @@ public class Conexiones {
 		try {
 			useDB(db);
 			query = "UPDATE " + tabla + " SET " + set + " WHERE " + where;
+			System.out.println(query);
 			st.executeUpdate(query);
 			JOptionPane.showMessageDialog(null, "Se ha actualizado la tabla " + tabla);
 		} catch (SQLException e) {
@@ -233,6 +234,163 @@ public class Conexiones {
 		}
 
 		return videos;
+	}
+
+	public ArrayList<Cientificos> selectCientificosData(String db, List<String> select, String from, String where, String groupby,
+			String having,
+			String orderby) {
+		int selectSize = select.size();
+		String dni = "", nomApels = "";
+		ArrayList<Cientificos> cientificos = new ArrayList<>();
+
+		try {
+			useDB(db);
+			query = "SELECT " + String.join(", ", select) + " FROM " + from;
+
+			if (!where.equals("")) {
+				query += " WHERE " + where;
+			}
+
+			if (!groupby.equals("")) {
+				query += " GROUP BY " + groupby;
+			}
+
+			if (!having.equals("")) {
+				query += " HAVING " + having;
+			}
+
+			if (!orderby.equals("")) {
+				query += " ORDER BY " + orderby;
+			}
+
+			query += ";";
+
+			System.out.println(query);
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+
+				if (select.contains("dni") || (selectSize == 1 && select.get(0).equals("*"))) {
+					dni = rs.getString("dni");
+				}
+				if (select.contains("nomApels") || (selectSize == 1 && select.get(0).equals("*"))) {
+					nomApels = rs.getString("nomApels");
+				}
+
+				Cientificos ci = new Cientificos(dni, nomApels);
+				cientificos.add(ci);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Error en la consulta");
+		}
+
+		return cientificos;
+	}
+
+	public ArrayList<Proyecto> selectProyectoData(String db, List<String> select, String from, String where, String groupby,
+			String having,
+			String orderby) {
+		int selectSize = select.size();
+		String id = "", nombre = "";
+		int horas = 0;
+		ArrayList<Proyecto> proyecto = new ArrayList<>();
+
+		try {
+			useDB(db);
+			query = "SELECT " + String.join(", ", select) + " FROM " + from;
+
+			if (!where.equals("")) {
+				query += " WHERE " + where;
+			}
+
+			if (!groupby.equals("")) {
+				query += " GROUP BY " + groupby;
+			}
+
+			if (!having.equals("")) {
+				query += " HAVING " + having;
+			}
+
+			if (!orderby.equals("")) {
+				query += " ORDER BY " + orderby;
+			}
+
+			query += ";";
+
+			System.out.println(query);
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+
+				if (select.contains("id") || (selectSize == 1 && select.get(0).equals("*"))) {
+					id = rs.getString("id");
+				}
+				if (select.contains("nombre") || (selectSize == 1 && select.get(0).equals("*"))) {
+					nombre = rs.getString("nombre");
+				}
+				if (select.contains("horas") || (selectSize == 1 && select.get(0).equals("*"))) {
+					horas = rs.getInt("horas");
+				}
+
+				Proyecto p = new Proyecto(id, nombre, horas);
+				proyecto.add(p);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Error en la consulta");
+		}
+
+		return proyecto;
+	}
+
+	public ArrayList<Asignado> selectAsignadoData(String db, List<String> select, String from, String where, String groupby,
+			String having,
+			String orderby) {
+		int selectSize = select.size();
+		String cientifico = "", proyecto = "";
+		ArrayList<Asignado> asignados = new ArrayList<>();
+
+		try {
+			useDB(db);
+			query = "SELECT " + String.join(", ", select) + " FROM " + from;
+
+			if (!where.equals("")) {
+				query += " WHERE " + where;
+			}
+
+			if (!groupby.equals("")) {
+				query += " GROUP BY " + groupby;
+			}
+
+			if (!having.equals("")) {
+				query += " HAVING " + having;
+			}
+
+			if (!orderby.equals("")) {
+				query += " ORDER BY " + orderby;
+			}
+
+			query += ";";
+
+			System.out.println(query);
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+
+				if (select.contains("cientifico") || (selectSize == 1 && select.get(0).equals("*"))) {
+					cientifico = rs.getString("cientifico");
+				}
+				if (select.contains("proyecto") || (selectSize == 1 && select.get(0).equals("*"))) {
+					proyecto = rs.getString("proyecto");
+				}
+
+				Asignado a = new Asignado(cientifico, proyecto);
+				asignados.add(a);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Error en la consulta");
+		}
+
+		return asignados;
 	}
 
 	private void useDB(String db) {

@@ -21,7 +21,7 @@ public class SelectView extends JFrame {
 	private ArrayList<Cliente> clientes;
 	private ArrayList<Videos> videos;
 
-	public SelectView(final Conexiones c, final String tabla) {
+	public SelectView(final Conexiones c, final String tabla, final String db) {
 		setTitle("Select");
 		setSize(600, 500);
 		setLocationRelativeTo(null);
@@ -160,7 +160,7 @@ public class SelectView extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				Startmenu sm = new Startmenu(c, tabla);
+				Startmenu sm = new Startmenu(c, tabla, db);
 			}
 		});
 	}

@@ -22,7 +22,7 @@ public class InsertVideosView extends JFrame{
     private JPanel jp;
     private ArrayList<Cliente> clientes;
 
-    public InsertVideosView(final Conexiones c, final String tabla) {
+    public InsertVideosView(final Conexiones c, final String tabla, final String db) {
         setTitle("Insert");
 		setSize(400, 240);
 		setLocationRelativeTo(null);
@@ -97,7 +97,7 @@ public class InsertVideosView extends JFrame{
 		addWindowListener(new WindowAdapter() {
 			@Override
 		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-		        Startmenu sm = new Startmenu(c, tabla);
+		        Startmenu sm = new Startmenu(c, tabla, db);
 		    }
 		});
     }

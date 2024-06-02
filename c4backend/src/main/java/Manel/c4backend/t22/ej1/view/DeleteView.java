@@ -21,7 +21,7 @@ public class DeleteView extends JFrame {
 	private ArrayList<Cliente> clientes;
 	private ArrayList<Videos> videos;
 
-	public DeleteView(final Conexiones c, final String tabla) {
+	public DeleteView(final Conexiones c, final String tabla, final String db) {
 		setTitle("Delete");
 		setSize(600, 400);
 		setLocationRelativeTo(null);
@@ -120,7 +120,7 @@ public class DeleteView extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				Startmenu sm = new Startmenu(c, tabla);
+				Startmenu sm = new Startmenu(c, tabla, db);
 			}
 		});
 	}
