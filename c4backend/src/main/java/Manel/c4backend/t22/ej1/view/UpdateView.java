@@ -175,83 +175,8 @@ public class UpdateView extends JFrame {
 		final JComboBox<String> selectStringId = new JComboBox<String>();
 		final JComboBox<String> selectStringId2 = new JComboBox<String>();
 
-		switch (db) {
-
-			case "clientes":
-
-				switch (tabla) {
-
-					case "Cliente":
-						for (int i = 0; i < clientes.size(); i++) {
-							selectNumberId.addItem(clientes.get(i).getId());
-						}
-						break;
-
-					case "Videos":
-						for (int i = 0; i < videos.size(); i++) {
-							selectNumberId.addItem(videos.get(i).getId());
-						}
-						break;
-
-					default:
-						break;
-				}
-
-				selectNumberId.setBounds(50, 250, 50, 20);
-				jp.add(selectNumberId);
-
-				break;
-
-			case "cientificos":
-
-				boolean dobleId = false;
-
-				switch (tabla) {
-
-					case "Cientificos":
-						for (int i = 0; i < cientificos.size(); i++) {
-							selectStringId.addItem(cientificos.get(i).getDni());
-						}
-						break;
-
-					case "Proyecto":
-						for (int i = 0; i < proyectos.size(); i++) {
-							selectStringId.addItem(proyectos.get(i).getId());
-						}
-						break;
-
-					case "Asignado a":
-						asignados = c.selectAsignadoData(db, select, "asignado_a", "", "cientifico", "", "");
-
-						for (int i = 0; i < asignados.size(); i++) {
-							selectStringId.addItem(asignados.get(i).getCientifico());
-						}
-
-						asignados = c.selectAsignadoData(db, select, "asignado_a", "", "proyecto", "", "");
-
-						for (int i = 0; i < asignados.size(); i++) {
-							selectStringId2.addItem(asignados.get(i).getProyecto());
-						}
-
-						dobleId = true;
-						break;
-
-					default:
-						break;
-				}
-
-				selectStringId.setBounds(50, 280, 90, 20);
-				jp.add(selectStringId);
-
-				if (dobleId) {
-					selectStringId2.setBounds(50, 250, 70, 20);
-					jp.add(selectStringId2);
-				}
-
-				break;
-			default:
-				break;
-		}
+		Methods.generateIdComboBox(selectNumberId, selectStringId, selectStringId2, clientes, videos, cientificos,
+				proyectos, asignados, db, tabla, c, jp, 50);
 
 		// Label
 		JLabel lAtributo = new JLabel("Atributo");

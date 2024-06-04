@@ -69,8 +69,8 @@ public class InsertVideosView extends JFrame{
         clientes = c.selectClienteData("clientes", select, "cliente", "", "", "", "");
 
 		final JComboBox<Integer> cbClientId = new JComboBox<Integer>();
-        for (int i = 1; i <= clientes.size(); i++) {
-			cbClientId.addItem(i);
+        for (int i = 0; i < clientes.size(); i++) {
+			cbClientId.addItem(clientes.get(i).getId());
 
 		}
 		cbClientId.setBounds(170, 100, 100, 20);

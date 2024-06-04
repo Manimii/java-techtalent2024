@@ -13,20 +13,33 @@ import Manel.c4backend.t22.ej1.controller.Conexiones;
 public class Methods {
 
 	public static void crearBaseDatos(Conexiones c) {
-		String db = "clientes";
-		String tabla1 = "cliente";
-		String atributos1 = Querys.defineClientTable();
-		String tabla2 = "videos";
-		String atributos2 = Querys.defineVideosTable();
+		String dbClientes = "clientes";
+		String tablaCliente = "cliente";
+		String atributosCliente = Querys.defineClientTable();
+		String tablaVideos = "videos";
+		String atributosVideos = Querys.defineVideosTable();
+		
+		String dbCientificos = "cientificos";
+		String tablaCientificos = "cientificos";
+		String atributosCientificos = Querys.defineClientTable();
+		String tablaProyecto = "proyecto";
+		String atributosProyecto = Querys.defineVideosTable();
+		String tablaAsignadoa = "asignado_a";
+		String atributosAsignadoa = Querys.defineVideosTable();
 
-		c.createDB(db);
-		c.createTable(db, tabla1, atributos1);
-		c.createTable(db, tabla2, atributos2);
-
-		// String valuesClient = Querys.insertDefaultClientValues();
-		// c.insertData(db, tabla, valuesClient);
-		// String valuesVideos = Querys.insertDefaultVideoValues();
-		// c.insertData(db, tabla2, valuesVideos);
+		c.createDB(dbClientes);
+		c.createTable(dbClientes, tablaCliente, atributosCliente);
+		c.createTable(dbClientes, tablaVideos, atributosVideos);
+		
+		c.createDB(dbCientificos);
+		c.createTable(dbCientificos, tablaCientificos, atributosCientificos);
+		c.createTable(dbCientificos, tablaProyecto, atributosProyecto);
+		c.createTable(dbCientificos, tablaAsignadoa, atributosAsignadoa);
+		
+//		 String valuesClient = Querys.insertDefaultClientValues();
+//		 c.insertData(db, tabla, valuesClient);
+//		 String valuesVideos = Querys.insertDefaultVideoValues();
+//		 c.insertData(dbClientes, tablaVideos, valuesVideos);
 
 	}
 
@@ -237,7 +250,7 @@ public class Methods {
 	public static void generateIdComboBox(JComboBox<Integer> selectNumberId, JComboBox<String> selectStringId,
 			JComboBox<String> selectStringId2, ArrayList<Cliente> clientes, ArrayList<Videos> videos,
 			ArrayList<Cientificos> cientificos, ArrayList<Proyecto> proyectos, ArrayList<Asignado> asignados, String db,
-			String tabla, Conexiones c, JPanel jp) {
+			String tabla, Conexiones c, JPanel jp, int x) {
 
 		List<String> select = new ArrayList<>();
 		select.add("*");
@@ -264,7 +277,7 @@ public class Methods {
 						break;
 				}
 
-				selectNumberId.setBounds(260, 250, 50, 20);
+				selectNumberId.setBounds(x, 250, 50, 20);
 				jp.add(selectNumberId);
 
 				break;
@@ -307,13 +320,14 @@ public class Methods {
 						break;
 				}
 
-				selectStringId.setBounds(260, 250, 90, 20);
+				selectStringId.setBounds(x, 250, 70, 20);
 				jp.add(selectStringId);
 
 				if (dobleId) {
-					selectStringId2.setBounds(260, 250, 70, 20);
-					selectStringId.setBounds(260, 280, 90, 20);
+					selectStringId2.setBounds(x, 250, 70, 20);
+					selectStringId.setBounds(x, 280, 90, 20);
 					jp.add(selectStringId2);
+					dobleId = false;
 				}
 
 				break;
