@@ -1,4 +1,4 @@
-package Manel.c4backend.t22.ej1.model;
+package Manel.c4backend.t22.ej1.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-import Manel.c4backend.t22.ej1.controller.Conexiones;
+import Manel.c4backend.t22.ej1.model.*;
 
 public class Methods {
 
