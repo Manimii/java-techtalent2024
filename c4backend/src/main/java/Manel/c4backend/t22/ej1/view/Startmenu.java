@@ -23,7 +23,7 @@ public class Startmenu extends JFrame{
 		setContentPane(jp);
 
 		// Label
-		JLabel titulo = new JLabel("Selecciona la función que quieres hacer en la tabla clientes",
+		JLabel titulo = new JLabel("Selecciona la función que quieres hacer en la tabla " + tabla,
 				SwingConstants.CENTER);
 		titulo.setBounds(0, 10, 400, 20);
 		jp.add(titulo);
