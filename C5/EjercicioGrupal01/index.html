@@ -9,11 +9,35 @@
 </head>
 
 <body>
-  <h1>Página web del proyecto Grupal</h1>
-  <p id="descr">
-    Proyecto html realizado por Manel, Santos y Alejandro con formulario,
-    listas e imagenes
-  </p>
+  <header>
+    <h1>Página web del proyecto Grupal</h1>
+    <nav>
+      <p id="descr">
+        Proyecto html realizado por Manel, Santos y Alejandro con formulario,
+        listas e imagenes
+      </p>
+    </nav>
+  </header>
+
+  <section id="descripcion">
+    <h2 class="center">Nuestra historia</h2>
+    <p class="historia">
+      En una pequeña ciudad costera vivía Manel, un poderoso luchador de UFC conocido por su increíble fuerza y su
+      devoción a Santos, un dios cristiano. Antes de cada pelea, Manel visitaba una capilla en lo alto de un acantilado
+      para encender una vela y pedir protección. </p>
+    <p class="historia">
+      Un día, antes de una pelea crucial, Manel encontró a Alejandro Sanz, el famoso cantautor, en la capilla.
+      Alejandro, con su guitarra, tocó una canción dedicada a Santos, llenando el lugar con su emotiva música. Manel
+      sintió una profunda inspiración.
+    </p>
+    <p class="historia">
+      Con la melodía resonando en su mente, Manel luchó con una fuerza renovada y ganó la pelea. La combinación de su
+      fe, su fuerza y la música de Alejandro le otorgaron la victoria. La historia de Manel, Santos y Alejandro se
+      convirtió en una leyenda en la pequeña ciudad costera.
+    </p>
+  </section>
+
+  <hr>
 
   <section id="Lista">
     <h2>Miembros del grupo</h2>
@@ -23,39 +47,42 @@
       <li>Alejandro</li>
     </ul>
   </section>
-
+  <hr>
   <section id="Imagenes">
     <h2>Galería de imagenes</h2>
     <div class="listaImagenes">
       <ul>
         <li>
           <figure>
-            <img src="img/Manel.png" alt="Manel" width="53%" title="Manel" />
+            <a href="https://github.com/Manimii/java-techtalent2024" target="_blank"><img src="img/Manel.png"
+                alt="Manel" width="53%" title="Manel" /></a>
             <figcaption>Manel</figcaption>
           </figure>
         </li>
         <li>
           <figure>
-            <img src="img/Santos.png" alt="Santos" width="60%" title="Santos" />
+            <a href="https://github.com/Santis079/RepositoriTechTalent" target="_blank"><img src="img/Santos.png"
+                alt="Santos" width="60%" title="Santos" /></a>
             <figcaption>Santos</figcaption>
           </figure>
         </li>
         <li>
           <figure>
-            <img src="img/Alejandro.png" alt="Alejandro" width="60%" title="Alejandro" />
+            <a href="https://github.com/AlejandroRJ013/TechTalent2024" target="_blank"><img src="img/Alejandro.png"
+                alt="Alejandro" width="60%" title="Alejandro" /></a>
             <figcaption>Alejandro</figcaption>
           </figure>
         </li>
       </ul>
     </div>
   </section>
-
+  <hr>
   <section id="formulario">
     <h2>Formulario</h2>
 
     <form action="" class="form-group">
       <label for="Nombre">Nombre:</label>
-      <input type="text" name="Nombre" id="nombre" placeholder="Nombre..." required rows="2"/>
+      <input type="text" name="Nombre" id="nombre" placeholder="Nombre..." required rows="2" />
       <label for="email">Email: </label>
       <input type="email" name="email" id="email" placeholder="email@ejemplo.com" required />
       <label for="mensaje">Mensaje</label>
