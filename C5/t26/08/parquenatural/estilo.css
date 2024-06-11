@@ -12,7 +12,7 @@ h1
 
 nav {
     float: left;
-    position: relative;
+    /* position: relative; */
     width: 15%;
     top: 1%;
 }

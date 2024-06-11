@@ -1,0 +1,44 @@
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th
+{
+    border: 4px ridge #3CB1D8;
+    padding: 1%;
+}
+
+.tableheader
+{
+    color: #CCFFCC;
+    background-color: #003333;
+}
+
+.verde1
+{
+    background-color: #CCFFCC;
+}
+
+.verde2
+{
+    background-color: #99CC99;
+}
+
+.borderTable
+{
+    width: 99%;
+    border: 5px ridge;
+}
+
+.borderBorder
+{
+    width: 50%;
+    border: 2px solid #3CB1D8;
+}
+
+.center
+{
+    text-align: center;
+}
