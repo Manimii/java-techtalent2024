@@ -1,0 +1,40 @@
+table
+{
+    width: 100%;
+    border: 3px solid lightgray;
+}
+
+td, th 
+{
+    border: 1px solid ;
+    text-align: center;
+    font-weight: bold;
+}
+
+caption
+{
+    font-weight: bold;
+}
+
+th
+{
+    background-color: #99FF99;
+}
+
+.azul
+{
+    background-color: #66FEFF;
+    text-align: left;
+}
+
+.morado
+{
+    background-color: #FF99FF;
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.rojo
+{
+    color: #C61B12;
+}

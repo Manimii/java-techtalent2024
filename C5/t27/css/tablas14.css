@@ -1,0 +1,30 @@
+body
+{
+    margin: 0;
+}
+
+table
+{
+    width: 50%;
+    border: 3px solid lightgray;
+    background-color: #FEFF99;
+}
+
+th
+{
+    background-color: white;
+}
+
+th, td
+{
+    border: 1px solid;
+    text-align: center;
+}
+
+.tabla
+{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
