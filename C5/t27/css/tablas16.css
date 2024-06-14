@@ -1,0 +1,34 @@
+body
+{
+    background-color: #F7F0E2;
+    color: #880640;
+}
+
+table
+{
+    border: 3.5px outset #B3B2B2;
+    width: 50%;
+    background-color: #FFFFCC;
+    text-align: center;
+}
+
+th
+{
+    background-color: #669966;
+    color: #6A1631;
+}
+
+th, td
+{
+    border: 2px outset #B3B3B2;
+}
+
+.naranja
+{
+    background-color: #FFCC99;
+}
+
+.amarillo
+{
+    background-color: #FFFF99;
+}

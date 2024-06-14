@@ -1,0 +1,71 @@
+body
+{
+    background-color: beige;
+}
+
+div
+{
+    width: 200px;
+    height: 200px;
+}
+
+img
+{
+    width: 100%;
+    height: 100%;
+}
+
+#container
+{
+    display: block;
+    width: 100%;
+}
+
+#mantel, #cuadro, #degradado
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 1%;
+}
+
+#mantel > div, #cuadro > div, #degradado > div
+{
+    margin: 1%;
+    border: 1px solid;
+}
+
+#mantel > div
+{
+    background-image: url(../img/mantel.png);
+}
+
+#cuadro > div
+{
+    background-image: url(../img/cuadro.png);
+}
+
+#degradado > div
+{
+    background-color: green;
+}
+
+#div1
+{
+    background-image: linear-gradient(to right, #D2FB5C, #5A6A45);
+}
+
+#div2
+{
+    background-image: linear-gradient(to top, #7A2705, #E8B5A0);
+}
+
+#div3
+{
+    background-image: linear-gradient(to top, #367A26, #E8EED1);
+}
+
+#div4
+{
+    background: linear-gradient(to top, #317a21, #317a2100 );
+}
