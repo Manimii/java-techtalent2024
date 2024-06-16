@@ -1,0 +1,14 @@
+td, th, table
+{
+    border: 1px solid;
+}
+
+.resaltar
+{
+    font-weight: bold;
+}
+
+.centrar
+{
+    text-align: center;
+}
