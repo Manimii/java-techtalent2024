@@ -1,18 +1,6 @@
 body
 {
-    background-color: beige;
-}
-
-div
-{
-    width: 200px;
-    height: 200px;
-}
-
-img
-{
-    width: 100%;
-    height: 100%;
+    background-image: url(../img/flores.png);
 }
 
 #container
@@ -31,23 +19,94 @@ img
 
 #mantel > div, #cuadro > div, #degradado > div
 {
+    width: 200px;
+    height: 200px;
+    text-align: center;
     margin: 1%;
     border: 1px solid;
+    box-sizing: border-box;
 }
 
-#mantel > div
+div > p
+{
+    text-align: center;
+}
+
+.div-padre
+{
+    display: flex;
+}
+
+.div-hijo-marco
+{
+    margin: auto;
+    width: 75%;
+    height: 75%;
+}
+
+.div-hijo-horizontal
+{
+    width: 100%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    background-position-y: 50%;
+}
+
+.div-hijo-vertical
+{
+    height: 100%;
+    width: 50%;
+    margin-left: 25%;
+    background-position-x: 50%;
+}
+
+.foto-mantel
 {
     background-image: url(../img/mantel.png);
+    background-repeat: no-repeat;
 }
 
-#cuadro > div
+.foto-cuadro
 {
     background-image: url(../img/cuadro.png);
+    background-repeat: no-repeat;
 }
 
-#degradado > div
+.full
 {
-    background-color: green;
+    background-size: cover;
+}
+
+.marco
+{
+    background-position: 50%;
+    background-size: 75%;
+}
+
+.fondo-blanco
+{
+    background-color: white;
+    z-index: -1;
+}
+
+.zoom
+{
+    background-size: 800%;
+}
+
+.zoom-marco
+{
+    background-size: 800%;
+
+    padding: 10px;
+}
+
+
+.horizontal
+{
+    background-size: cover;
+    background-size: 100%;
+    background-position-y: 0, -50px;
 }
 
 #div1
@@ -57,7 +116,7 @@ img
 
 #div2
 {
-    background-image: linear-gradient(to top, #7A2705, #E8B5A0);
+    background-image: linear-gradient(to top, #d6764d, #7A2705, #b45c38,#df9576, #E8B5A0);
 }
 
 #div3
@@ -67,5 +126,5 @@ img
 
 #div4
 {
-    background: linear-gradient(to top, #317a21, #317a2100 );
+    background-image: linear-gradient(to top, #317a21, transparent);
 }
