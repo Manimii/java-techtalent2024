@@ -2,3 +2,8 @@
 {
     background-color: #2980B9;
 }
+
+::-webkit-input-placeholder
+{
+    font-style: italic;
+}
