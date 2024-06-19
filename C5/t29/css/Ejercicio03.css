@@ -23,6 +23,21 @@
     color: black;
 }
 
+.menu-dark
+{
+    background-color: #434A54;
+}
+
+.menu-dark > li > a
+{
+    color: white;
+}
+
+.menu-dark > li > a:hover 
+{
+    background-color: #383F49;
+    color: white;
+}
 
 ::-webkit-input-placeholder
 {
