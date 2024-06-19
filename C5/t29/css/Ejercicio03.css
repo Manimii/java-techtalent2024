@@ -3,6 +3,27 @@
     background-color: #2980B9;
 }
 
+.bg-azul-dark
+{
+    background-color: #2572A4;
+}
+
+#menu > li:hover 
+{
+    background-color: white;
+}
+
+#menu > li > a
+{
+    color: white;
+}
+
+#menu > li:hover > a
+{
+    color: black;
+}
+
+
 ::-webkit-input-placeholder
 {
     font-style: italic;

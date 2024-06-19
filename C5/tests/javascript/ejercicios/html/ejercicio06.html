@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="persona">Muestra la persona y edad.</p>
+
+    <script>
+        let persona = {
+            nombre: "Cristina",
+            apellido: "García",
+            edad: 39
+        };
+        document.getElementById("persona").innerHTML =
+            persona.nombre + " " + persona.apellido + " tiene " + persona.edad + " años";
+    </script>
+
+</body>
+
+</html>
