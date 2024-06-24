@@ -12,6 +12,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="../css/Ejercicio08.css">
+    <script src="../js/Ejercicio08.js"></script>
 </head>
 
 <body class="bg-info d-flex m-auto justify-content-center">
@@ -23,10 +24,10 @@
             <div id="display">
                 <div class="input-group input-group-lg">
                     <input type="text" class="form-control border-bottom-0 rounded-0 py-2 text-end" disabled
-                        placeholder="0">
+                        placeholder="0" id="inputDisplay">
                 </div>
                 <div class="input-group">
-                    <input type="text" class="form-control border-top-0 rounded-0 text-end" disabled placeholder="=">
+                    <input type="text" class="form-control border-top-0 rounded-0 text-end" disabled placeholder="=" id="output">
                 </div>
             </div>
             <div class="w-100 btn-group" id="cuerpo">
@@ -46,12 +47,12 @@
                 </div>
                 <div class="w-25">
                     <div class="btn-group-vertical w-100">
-                        <button class="operadores border-0 w-100 text-white">DEL</button>
-                        <button class="operadores border-0 w-100 text-white">/</button>
-                        <button class="operadores border-0 w-100 text-white">X</button>
-                        <button class="operadores border-0 w-100 text-white">-</button>
-                        <button class="operadores border-0 w-100 text-white">+</button>
-                        <button class="operadores border-0 w-100 text-white">=</button>
+                        <button id="delete" class="operadores border-0 w-100 text-white">DEL</button>
+                        <button id="divide" class="operadores border-0 w-100 text-white">/</button>
+                        <button id="mult" class="operadores border-0 w-100 text-white">X</button>
+                        <button id="subst" class="operadores border-0 w-100 text-white">-</button>
+                        <button id="add" class="operadores border-0 w-100 text-white">+</button>
+                        <button id="equals" class="operadores border-0 w-100 text-white">=</button>
                     </div>
                 </div>
             </div>
