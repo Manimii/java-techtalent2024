@@ -1,0 +1,18 @@
+#header {
+    width: 90%;
+    margin-left: 5%;
+}
+
+section, footer {
+    margin-left: 5%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.active {
+    font-weight: bold;
+}

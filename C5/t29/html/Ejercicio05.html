@@ -10,14 +10,28 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="../css/Ejercicio05.css">
 </head>
 
 <body>
     <header>
-        <h1 class="mt-5 text-primary">Listado de Usuario del Sistema</h1>
+        <h1 class="my-5 text-primary">Listado de Usuario del Sistema</h1>
     </header>
     <main>
+        <div class="row">
+            <p class="col-8">Mostrar <select name="number-rows" id="number-rows" class="select-width">
+                    <option value="select-10">10</option>
+                    <option value="select-5">5</option>
+                </select> registros</p>
+            <div class="col-4">
+                <label for="buscar">Buscar:</label>
+                <input type="text" name="buscar">
+            </div>
+        </div>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -34,44 +48,79 @@
                     <td>admin</td>
                     <td>Administración</td>
                     <td>2018-01-17 12:49:56</td>
-                    <td><button class="btn btn-primary">A</button><button class="btn btn-success">B</button><button
-                            class="btn btn-danger">C</button></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button><button
+                                class="btn btn-success"><i class="bi bi-pencil-square"></i></button><button
+                                class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>marcelo</td>
                     <td>Administración</td>
                     <td>2018-02-24 13:38:36</td>
-                    <td><button class="btn btn-primary">A</button><button class="btn btn-success">B</button><button
-                            class="btn btn-danger">C</button></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button><button
+                                class="btn btn-success"><i class="bi bi-pencil-square"></i></button><button
+                                class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>eduardo</td>
                     <td>Producción</td>
                     <td>2018-02-08 10:54:36</td>
-                    <td><button class="btn btn-primary">A</button><button class="btn btn-success">B</button><button
-                            class="btn btn-danger">C</button></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button><button
+                                class="btn btn-success"><i class="bi bi-pencil-square"></i></button><button
+                                class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td>jorge</td>
                     <td>Administración</td>
                     <td>2018-02-08 09:43:26</td>
-                    <td><button class="btn btn-primary">A</button><button class="btn btn-success">B</button><button
-                            class="btn btn-danger">C</button></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button><button
+                                class="btn btn-success"><i class="bi bi-pencil-square"></i></button><button
+                                class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>7</td>
                     <td>gaston</td>
                     <td>Producción</td>
                     <td>2018-02-20 17:25:45</td>
-                    <td><button class="btn btn-primary">A</button><button class="btn btn-success">B</button><button
-                            class="btn btn-danger">C</button></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button><button
+                                class="btn btn-success"><i class="bi bi-pencil-square"></i></button><button
+                                class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
-
         </table>
+        <div class="row">
+            <p class="col-8">Mostrando del 1 al 5 de un total de 5 registros</p>
+            <ul class="pagination col-4">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </div>
+        <button class="btn btn-primary">Agregar Usuario</button>
     </main>
     <footer>
 
