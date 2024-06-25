@@ -48,8 +48,15 @@ window.onload = function(){
 
     function deleteDisplay() {
         let valueLength = display.value.length;
+        let slicedValue = display.value.slice(valueLength - 1);
         let newValue = display.value.slice(0, valueLength - 1);
         display.value = newValue;
+        if (slicedValue === "/" || slicedValue === "X" || slicedValue === "+" || slicedValue === "-") {
+            op1 = 0;
+            op2 = 0;
+            operador = "";
+            estado = 0;
+        }
     }
 
     function opera(simbolo) {
