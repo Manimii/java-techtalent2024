@@ -11,9 +11,9 @@ window.onload = function(){
     const output = document.getElementById("output");
 
     // Event Listeners del cuerpo de la calculadora
-    botonNumeros();
-    document.getElementById("delete").addEventListener("click", function() {deleteDisplay()});
-    botonOperadores();
+    botonNumeros(); // numeros
+    document.getElementById("delete").addEventListener("click", function() {deleteDisplay()}); // DEL
+    botonOperadores(); // "/", "X", "+", "-", "="
 
     // Funciones
 
