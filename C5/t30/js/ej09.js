@@ -10,13 +10,13 @@ window.onload = function() {
         let lower = s.toLowerCase();
         
         if (s === upper) {
-            mensaje = s + ": Todas las letras son mayúsculas."
+            mensaje = s + ": Todas las letras son mayúsculas.";
 
         } else if (s === lower) {
-            mensaje = s + ": Todas las letras son minúsculas."
+            mensaje = s + ": Todas las letras son minúsculas.";
 
         } else {
-            mensaje = s + ": El String es una mezcla de mayúsculas y minúsculas."
+            mensaje = s + ": El String es una mezcla de mayúsculas y minúsculas.";
         }
 
         return mensaje;
