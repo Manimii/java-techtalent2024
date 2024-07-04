@@ -24,16 +24,6 @@ ul {
     width: 13em;
 }
 
-#leftNav {
-    /* position: absolute;
-    left: 2%; */
-}
-
-#rightNav {
-    /* position: absolute;
-    right: 10%; */
-}
-
 #rightNav li {
     padding-top: 5%;
     padding-left: 5%;
